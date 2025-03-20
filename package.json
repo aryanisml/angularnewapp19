@@ -19,6 +19,7 @@
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/router": "^19.0.0",
+    "@fortawesome/angular-fontawesome": "^1.0.0",
     "@primeng/themes": "^19.0.10",
     "keycloak-angular": "^19.0.2",
     "primeng": "^19.0.10",

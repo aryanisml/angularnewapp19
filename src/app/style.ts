@@ -1,8 +1,7 @@
 import { definePreset } from '@primeng/themes';
 import Aura from '@primeng/themes/aura';
 
-
-// Modified preset based on the truck rental UI screenshots
+// Modified preset based on the truck rental UI screenshots and Avenir typography
 const TruckRentalPreset = definePreset(Aura, {
   primitive: {
     // Customize border radius to match the UI in screenshots
@@ -148,13 +147,24 @@ const TruckRentalPreset = definePreset(Aura, {
     },
   },
   semantic: {
+    // Define font family to use Avenir
+    fontFamily: "Avenir, sans-serif",
+    // Define base font size as 14px
+    fontSize: "14px",
+    // Define font weights based on design system
+    fontWeight: {
+      normal: "400",
+      medium: "500",
+      bold: "600", 
+      heavy: "800"
+    },
     // Adjust transition for smoother interactions
     transitionDuration: "0.2s",
     focusRing: {
-      width: "2px",
-      style: "solid",
-      color: "{primary.color}",
-      offset: "2px",
+      width: "0", // Change from "2px" to "0"
+      style: "none", // Change from "solid" to "none" 
+      color: "transparent", // Change to transparent
+      offset: "0", // Change from "-1px" to "0"
       shadow: "none"
     },
     // Set primary color to match the UI's blue
@@ -175,23 +185,30 @@ const TruckRentalPreset = definePreset(Aura, {
     formField: {
       paddingX: "0.75rem",
       paddingY: "0.5rem",
+      fontSize: "14px", // Default font size
+      lineHeight: "1.5",
       sm: {
-        fontSize: "0.875rem",
+        fontSize: "12px", // Small variant - Body 3
         paddingX: "0.625rem",
         paddingY: "0.375rem"
       },
+      md: {
+        fontSize: "14px", // Medium variant - Body 2
+        paddingX: "0.75rem",
+        paddingY: "0.5rem"
+      },
       lg: {
-        fontSize: "1.125rem",
+        fontSize: "16px", // Large variant - Body 1
         paddingX: "0.875rem",
         paddingY: "0.625rem"
       },
       borderRadius: "{border.radius.xs}",
       focusRing: {
-        width: "2px",
-        style: "solid",
-        color: "{primary.color}",
-        offset: "-1px",
-        shadow: "none"
+        width: "0", // Change from "2px" to "0"
+    style: "none", // Change from "solid" to "none" 
+    color: "transparent", // Change to transparent
+    offset: "0", // Change from "-1px" to "0"
+    shadow: "none"
       },
       transitionDuration: "{transition.duration}"
     },
@@ -246,65 +263,161 @@ const TruckRentalPreset = definePreset(Aura, {
     }
   },
   components: {
+    // Global component settings
+
+    // Add this to the components section of your TruckRentalPreset
+checkbox: {
+  root: {
+    transitionDuration: "0.2s",
+  },
+  box: {
+    borderRadius: "3px",
+    width: "18px",
+    height: "18px",
+    border: "1px solid #ced4da",
+    background: "#ffffff",
+    transitionDuration: "0.2s",
+  },
+  // Define different checkbox variants
+  colorScheme: {
+    light: {
+      // Blue variant
+      primary: {
+        background: "#2196F3",
+        borderColor: "#2196F3",
+        hoverBackground: "#1976D2",
+        hoverBorderColor: "#1976D2",
+      },
+      // Gray variant
+      gray: {
+        background: "#9E9E9E",
+        borderColor: "#9E9E9E",
+        hoverBackground: "#757575",
+        hoverBorderColor: "#757575",
+      },
+      // Red variant
+      red: {
+        background: "#F44336",
+        borderColor: "#F44336",
+        hoverBackground: "#E53935",
+        hoverBorderColor: "#E53935",
+      }
+    }
+  }
+},
+    global: {
+      fontFamily: "Avenir, sans-serif",
+      fontSize: "14px", // Base font size
+    },
+    
+    // Text typography according to design system
+    text: {
+      h1: {
+        fontWeight: "{fontWeight.heavy}",
+        fontSize: "26px",
+        lineHeight: "39px",
+        // Mobile responsive
+        sm: {
+          fontSize: "22px",
+          lineHeight: "33px",
+        }
+      },
+      h2: {
+        fontWeight: "{fontWeight.medium}",
+        fontSize: "22px",
+        lineHeight: "33px",
+        // Mobile responsive
+        sm: {
+          fontSize: "18px",
+          lineHeight: "27px",
+        }
+      },
+      h3: {
+        fontWeight: "{fontWeight.medium}",
+        fontSize: "18px",
+        lineHeight: "27px",
+        // Mobile responsive
+        sm: {
+          fontSize: "16px",
+          lineHeight: "24px",
+        }
+      },
+      // Body text typography
+      body1: {
+        fontWeight: "{fontWeight.normal}",
+        fontSize: "16px",
+        lineHeight: "24px",
+      },
+      body2: {
+        fontWeight: "{fontWeight.normal}",
+        fontSize: "14px",
+        lineHeight: "20px",
+      },
+      body3: {
+        fontWeight: "{fontWeight.normal}",
+        fontSize: "12px",
+        lineHeight: "18px",
+      },
+      small: {
+        fontWeight: "{fontWeight.normal}",
+        fontSize: "10px",
+        lineHeight: "16px",
+      },
+    },
+    
     // Customize components to match the UI
     select: {
-        root: {
-          background: "#ffffff",
-          borderColor: "#cbd5e1",
-          hoverBorderColor: "#94a3b8", 
-          focusBorderColor: "#3376ff",
-          color: "#1e293b",
-          transitionDuration: "0.2s",
-          borderRadius: "4px"
-        },
-        panel: {
-          background: "#ffffff",
-          borderColor: "#e2e8f0",
-          shadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
-          borderRadius: "4px"
-        },
-        item: {
-          background: "transparent",
-          hoverBackground: "#e2e8f0", 
-          activeBackground: "#1e5ad0",
-          borderColor: "transparent",
-          hoverBorderColor: "transparent",
-          activeBorderColor: "#1e5ad0",
-          color: "#1e293b",
-          hoverColor: "#000000",
-          activeColor: "#ffffff",
-          padding: "0.75rem 1rem",
-          transitionDuration: "0.2s",
-          fontWeight: "500", 
-          borderRadius: "4px"
-        },
-        itemGroup: {
-          background: "#f8fafc",
-          color: "#64748b",
-          padding: "0.75rem 1rem",
-          fontWeight: "600"
-        },
-        trigger: {
-          padding: "0.5rem 0.75rem",
-          color: "#1e293b",
-          hoverColor: "#000000"
-        },
-        label: {
-          color: "#1e293b",
-          fontWeight: "normal"
-        },
-        // Ensure focus state is properly styled
+      root: {
+        transitionDuration: "0.2s",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
+      },
+      panel: {
+        background: "#ffffff",
+        borderColor: "#e2e8f0",
+        shadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
+        borderRadius: "4px"
+      },
+      item: {
+        background: "transparent",
+        // Selected item background (light blue)
+        selectedBackground: "blue", 
+        hoverBackground: "red",
+        activeBackground: "green",
+        borderColor: "transparent",
+        hoverBorderColor: "transparent",
+        selectedBorderColor: "transparent",
+        activeBorderColor: "transparent",
+        color: "#1e293b",
+        selectedColor: "#1e293b",
+        hoverColor: "#1e293b",
+        activeColor: "#1e293b",
+        padding: "0.75rem 1rem",
+        marginBottom: "0", // No gap between items
+        // For version with 1px gap, you'll override this with CSS
+        transitionDuration: "0.2s",
+        fontWeight: "400",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
+      },
+      // Add styles for the checkmark
+      checkmark: {
+        color: "#2196F3",
+        fontSize: "1rem"
+      }
+      },
+      dropdown: {
         focusRing: {
-          width: "2px",
-          style: "solid",
-          color: "#3376ff",
-          offset: "-1px",
+          width: "0", // Change from "2px" to "0"
+          style: "none", // Change from "solid" to "none"
+          color: "transparent", // Change to transparent
+          offset: "0", // Change from "2px" to "0"
           shadow: "none"
-        }
-      },
-    dropdown: {
+        },
         root: {
-          transitionDuration: "0.2s"
+          transitionDuration: "0.2s",
+          fontSize: "14px",
+          fontFamily: "Avenir, sans-serif",
         },
         panel: {
           background: "#ffffff",
@@ -314,27 +427,36 @@ const TruckRentalPreset = definePreset(Aura, {
         },
         item: {
           background: "transparent",
-          hoverBackground: "#e2e8f0", // Light gray on hover
-          activeBackground: "#1e5ad0", // Selected item background
+          selectedBackground: "#EFF6FF", 
+          hoverBackground: "#eff6ff",
+          activeBackground: "#eff6ff",
           borderColor: "transparent",
           hoverBorderColor: "transparent",
-          activeBorderColor: "#1e5ad0",
-          color: "#1e293b", // Normal text color
-          hoverColor: "#000000", // Text color on hover
-          activeColor: "#ffffff", // Text color for selected item
+          selectedBorderColor: "transparent",
+          activeBorderColor: "transparent",
+          color: "#1e293b",
+          selectedColor: "#1e293b",
+          hoverColor: "#1e293b",
+          activeColor: "#1e293b",
           padding: "0.75rem 1rem",
+          marginBottom: "0", // No gap between items
           transitionDuration: "0.2s",
-          fontWeight: "500",
-          borderRadius: "4px"
+          fontWeight: "400",
+          fontSize: "14px",
+          fontFamily: "Avenir, sans-serif",
         },
-        itemGroup: {
-          background: "#f8fafc",
-          color: "#64748b",
-          padding: "0.75rem 1rem",
-          fontWeight: "600"
+        highlightItem: {
+          // For highlighted items when hovering
+          background: "#EFF6FF",
+          hoverBackground: "#EFF6FF", // Keep the same color on hover for highlighted items
+          color: "#1e293b",
+          hoverColor: "#1e293b"
+        },
+        checkmark: {
+          color: "#2196F3",
+          fontSize: "1rem"
         }
       },
-      
     button: {
       root: {
         borderRadius: "4px", // Match the rounded buttons in UI
@@ -342,15 +464,21 @@ const TruckRentalPreset = definePreset(Aura, {
         paddingX: "0.75rem",
         paddingY: "0.5rem",
         iconOnlyWidth: "2.5rem",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
         label: {
-          fontWeight: "600" // Slightly bolder text for buttons
+          fontWeight: "{fontWeight.heavy}", // Heavy weight (800) for buttons
+          fontSize: "14px",
+          fontFamily: "Avenir, sans-serif",
         },
         // Adjust shadow to match the UI
         raisedShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
         focusRing: {
-          width: "2px",
-          style: "solid",
-          offset: "2px"
+          width: "0", // Change from "2px" to "0"
+          style: "none", // Change from "solid" to "none"
+          color: "transparent", // Change to transparent
+          offset: "0", // Change from "2px" to "0"
+          shadow: "none"
         },
         transitionDuration: "0.2s"
       },
@@ -368,7 +496,10 @@ const TruckRentalPreset = definePreset(Aura, {
               hoverColor: "#ffffff",
               activeColor: "#ffffff",
               focusRing: {
-                color: "#1e5ad0",
+                width: "0", // Change from "2px" to "0"
+                style: "none", // Change from "solid" to "none" 
+                color: "transparent", // Change to transparent
+                offset: "0", // Change from "-1px" to "0"
                 shadow: "none"
               }
             },
@@ -384,31 +515,42 @@ const TruckRentalPreset = definePreset(Aura, {
         background: "#ffffff",
         borderRadius: "4px",
         color: "#1e293b",
-        shadow: "0 1px 3px rgba(0, 0, 0, 0.1)"
+        shadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
       },
       body: {
         padding: "1rem",
-        gap: "0.5rem"
+        gap: "0.5rem",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
       },
       title: {
         fontSize: "1.25rem",
-        fontWeight: "600"
+        fontWeight: "{fontWeight.medium}",
+        fontFamily: "Avenir, sans-serif",
       },
       subtitle: {
-        color: "#64748b"
+        color: "#64748b",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
       }
     },
     // Table styling to match the reservation tables in screenshots
     datatable: {
       root: {
-        transitionDuration: "0.2s"
+        transitionDuration: "0.2s",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
       },
       header: {
         background: "#ffffff",
         borderColor: "#e2e8f0",
         color: "#1e293b",
         borderWidth: "0 0 1px 0",
-        padding: "0.75rem 1rem"
+        padding: "0.75rem 1rem",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
       },
       headerCell: {
         background: "#ffffff",
@@ -420,16 +562,20 @@ const TruckRentalPreset = definePreset(Aura, {
         selectedColor: "#1e5ad0",
         gap: "0.5rem",
         padding: "0.75rem 1rem",
+        fontSize: "16px",
+        fontFamily: "Avenir, sans-serif",
         focusRing: {
-          width: "2px",
-          style: "solid",
-          color: "#1e5ad0",
-          offset: "-1px",
+          width: "0", // Change from "2px" to "0"
+          style: "none", // Change from "solid" to "none"
+          color: "transparent", // Change to transparent
+          offset: "0", // Change from "2px" to "0"
           shadow: "none"
         }
       },
       columnTitle: {
-        fontWeight: "600"
+        fontWeight: "{fontWeight.medium}",
+        fontSize: "16px",
+        fontFamily: "Avenir, sans-serif",
       },
       row: {
         background: "#ffffff",
@@ -437,23 +583,31 @@ const TruckRentalPreset = definePreset(Aura, {
         selectedBackground: "#dbeafe",
         color: "#1e293b",
         hoverColor: "#1e293b",
-        selectedColor: "#1e5ad0"
+        selectedColor: "#1e5ad0",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
       },
       bodyCell: {
         borderColor: "#e2e8f0",
-        padding: "0.75rem 1rem"
+        padding: "0.75rem 1rem",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
       },
       // Other table settings retained
     },
     // Tabs styling for the top navigation tabs
     tabmenu: {
       root: {
-        transitionDuration: "0.2s"
+        transitionDuration: "0.2s",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
       },
       tablist: {
         borderWidth: "0 0 1px 0",
         background: "#ffffff",
-        borderColor: "#e2e8f0"
+        borderColor: "#e2e8f0",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
       },
       item: {
         background: "#ffffff",
@@ -467,9 +621,11 @@ const TruckRentalPreset = definePreset(Aura, {
         hoverColor: "#1e293b",
         activeColor: "#ffffff",
         padding: "0.75rem 1rem",
-        fontWeight: "600",
+        fontWeight: "{fontWeight.heavy}",
         margin: "0",
-        gap: "0.5rem"
+        gap: "0.5rem",
+        fontSize: "16px",
+        fontFamily: "Avenir, sans-serif",
       },
       // Other tab settings retained
     },
@@ -493,11 +649,13 @@ const TruckRentalPreset = definePreset(Aura, {
         paddingX: "0.75rem",
         paddingY: "0.5rem",
         borderRadius: "4px",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
         focusRing: {
-          width: "2px",
-          style: "solid",
-          color: "#3376ff",
-          offset: "-1px",
+          width: "0", // Change from "2px" to "0"
+          style: "none", // Change from "solid" to "none" 
+          color: "transparent", // Change to transparent
+          offset: "0", // Change from "-1px" to "0"
           shadow: "none"
         },
         transitionDuration: "0.2s"
@@ -510,22 +668,31 @@ const TruckRentalPreset = definePreset(Aura, {
         borderColor: "#cbd5e1",
         color: "#1e293b",
         borderRadius: "6px",
-        shadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
+        shadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
       },
       header: {
         padding: "1rem",
-        gap: "0.5rem"
+        gap: "0.5rem",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
       },
       title: {
         fontSize: "1.25rem",
-        fontWeight: "600"
+        fontWeight: "{fontWeight.medium}",
+        fontFamily: "Avenir, sans-serif",
       },
       content: {
-        padding: "0 1rem 1rem 1rem"
+        padding: "0 1rem 1rem 1rem",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
       },
       footer: {
         padding: "0 1rem 1rem 1rem",
-        gap: "0.5rem"
+        gap: "0.5rem",
+        fontSize: "14px",
+        fontFamily: "Avenir, sans-serif",
       }
     },
     // Badge styling for status indicators
@@ -534,9 +701,10 @@ const TruckRentalPreset = definePreset(Aura, {
         borderRadius: "4px",
         padding: "0 0.5rem",
         fontSize: "0.75rem",
-        fontWeight: "600",
+        fontWeight: "{fontWeight.heavy}",
         minWidth: "1.5rem",
-        height: "1.5rem"
+        height: "1.5rem",
+        fontFamily: "Avenir, sans-serif",
       },
       colorScheme: {
         light: {
@@ -570,5 +738,16 @@ const TruckRentalPreset = definePreset(Aura, {
     // Retain other component styling from original preset
   }
 });
+
+// Add CSS for importing Avenir font face
+// You'll need to include this in your main CSS/SCSS file
+/* 
+@font-face {
+  font-family: "Avenir";
+  src: url(https://partners.rebelmouse.com/gopenske/908c4810-64db-4b46-bb8e-823eb41f68c0.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+*/
 
 export default TruckRentalPreset;

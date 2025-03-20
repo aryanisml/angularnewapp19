@@ -1,87 +1,289 @@
 /* styles.scss */
-
 /* Import Tailwind's base styles */
 @tailwind base;
-
 /* Import Tailwind's component classes */
 @tailwind components;
-
 /* Import Tailwind's utility classes */
 @tailwind utilities;
 
-/* Typography settings that apply to all components */
+/* Typography and design system variables */
 :root {
-  --font-family: 'Avenir','Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-size-base: 14px;
+  --font-family: 'Avenir LT Std';
+  --font-size-base: 16px;
   --line-height-base: 1.5;
   --text-color: #1e293b;
   --text-color-secondary: #64748b;
   --heading-color: #0f172a;
-  --highlight-bg: #dbeafe !important; /* Light blue */
-  --highlight-text-color: #000000 !important;
-  --dropdown-hover-bg: #dbeafe !important;
-  --dropdown-active-bg: #1e5ad0 !important;
-  --dropdown-active-text: #ffffff !important;
+  --highlight-bg: #dbeafe;
+  --highlight-text-color: #000000;
+  --dropdown-hover-bg: #dbeafe;
+  --dropdown-active-bg: #1e5ad0;
+  --dropdown-active-text: #ffffff;
+  
+  /* Line height variables */
+  --lh-39: 39px;
+  --lh-33: 33px;
+  --lh-27: 27px;
+  --lh-24: 24px;
+  --lh-21: 21px;
+  --lh-20: 20px;
+  --lh-18: 18px;
+  --lh-16: 16px;
 }
+
+/* Font face declarations for Avenir LT Std variants */
 @font-face {
-  font-family: "Avenir";
-  src: url(https://partners.rebelmouse.com/gopenske/908c4810-64db-4b46-bb8e-823eb41f68c0.woff) format("woff");
-  font-weight: normal;
+  font-family: "Avenir LT Std";
+  src: url(https://partners.rebelmouse.com/penske/avenir-family/AvenirLTW05-65Medium.woff2) format("woff2");
+  font-weight: 500; /* Medium */
   font-style: normal;
-  font-display: swap; /* Improves rendering performance */
+  font-display: swap;
 }
 
-/* Base typography styles */
-body {
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-  color: var(--text-color);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  @apply p-2 sm:p-4 md:p-6 lg:p-8;
-  @apply bg-slate-50;
+@font-face {
+  font-family: "Avenir LT Std";
+  src: url(https://partners.rebelmouse.com/penske/avenir-family/AvenirLTW05-85Heavy.woff2) format("woff2");
+  font-weight: 700; /* Heavy */
+  font-style: normal;
+  font-display: swap;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family);
-  font-weight: 600;
-  color: var(--heading-color);
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
+@font-face {
+  font-family: "Avenir LT Std";
+  src: url(https://partners.rebelmouse.com/penske/avenir-family/AvenirLTW05-55Roman.woff2) format("woff2");
+  font-weight: 400; /* Standard */
+  font-style: normal;
+  font-display: swap;
 }
 
-h1 { font-size: 2rem; }
-h2 { font-size: 1.75rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.25rem; }
-h5 { font-size: 1.125rem; }
-h6 { font-size: 1rem; }
-
-/* Paragraphs */
-p {
-  margin-bottom: 1rem;
+@font-face {
+  font-family: "Avenir LT Std";
+  src: url(https://partners.rebelmouse.com/penske/avenir-family/AvenirLTW05-35Light.woff2) format("woff2");
+  font-weight: 300; /* Book */
+  font-style: normal;
+  font-display: swap;
 }
 
-/* Links */
-a {
-  color: var(--primary-color, #1e5ad0);
-  text-decoration: none;
+/* Base styles using Tailwind layer to ensure proper precedence */
+@layer base {
+  body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply p-8;
+  }
+
+  h1 {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 26px;
+    line-height: var(--lh-39);
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
+    
+    @media (max-width: 768px) {
+      font-size: 22px;
+      line-height: var(--lh-33);
+    }
+  }
+
+  h2 {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: var(--lh-33);
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
+    
+    @media (max-width: 768px) {
+      font-size: 18px;
+      line-height: var(--lh-27);
+    }
+  }
+
+  h3 {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: var(--lh-27);
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
+    
+    @media (max-width: 768px) {
+      font-size: 16px;
+      line-height: var(--lh-24);
+    }
+  }
 }
 
-a:hover {
-  text-decoration: underline;
-}
+/* Typography utility classes using Tailwind components layer */
+@layer components {
+  .body-1 {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: var(--lh-24);
+  }
 
-/* Make PrimeNG components use the same typography */
+  .body-2 {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: var(--lh-20);
+  }
+
+  .body-3 {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: var(--lh-18);
+  }
+
+  .body-4 {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 10px;
+    line-height: var(--lh-16);
+  }
+
+  .data-label {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: var(--lh-21);
+  }
+
+  .data-point {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: var(--lh-24);
+  }
+
+  .form-placeholder {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: var(--lh-24);
+  }
+
+  .disclaimer {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: var(--lh-21);
+  }
+
+  .validation-error {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: var(--lh-21);
+    color: #D0021B; /* Error red color */
+  }
+
+  /* Link styles */
+  .text-link {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: var(--lh-24);
+    color: var(--primary-color, #1e5ad0);
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  /* Tab styles */
+  .tab-enabled {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: var(--lh-24);
+  }
+
+  .tab-selected {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: var(--lh-24);
+  }
+
+  /* Table styles */
+  .column-header {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: var(--lh-24);
+  }
+
+  .table-data {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: var(--lh-24);
+  }
+
+  .sub-data-label {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: var(--lh-20);
+  }
+
+  /* Button styles */
+  .medium-button {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: var(--lh-20);
+  }
+
+  /* Navigation styles */
+  .nav-item {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: var(--lh-20);
+  }
+
+  .logo {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  /* Section title */
+  .section-title {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: var(--lh-24);
+    text-transform: uppercase;
+  }
+
+  /* Helper text */
+  .helper-text {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: var(--lh-20);
+    color: #717274;
+  }
+
+/* PrimeNG component customization */
 .p-component {
   font-family: var(--font-family);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
 }
 
-/* Apply typography to specific PrimeNG components */
 .p-card-title {
   font-weight: 600;
   color: var(--heading-color);
@@ -96,28 +298,470 @@ a:hover {
   color: var(--heading-color);
 }
 
-/* Other common text elements */
-.text-sm { font-size: 0.875rem; }
-.text-lg { font-size: 1.125rem; }
-.text-xl { font-size: 1.25rem; }
-.text-2xl { font-size: 1.5rem; }
-
-.font-medium { font-weight: 500; }
-.font-semibold { font-weight: 600; }
-.font-bold { font-weight: 700; }
-
-.text-muted { color: var(--text-color-secondary); }
-
-.p-dropdown-item {
-  transition: background 0.2s, color 0.2s;
+/* Card Base Styles */
+.p-card {
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+  &.surfaces-card-enabled {
+    background-color: #ffffff;
+    color: #171718;
+    border: 1px solid #D4D7D9;
+    
+    .p-card-title {
+      color: #171718;
+      font-weight: 500;
+    }
+    
+    .p-card-subtitle {
+      color: #717274;
+    }
+  }
+  
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    
+    .p-card-title {
+      color: #002496;
+    }
+  }
+  
+  &.nested-groups {
+    padding-bottom: 8px;
+    
+    .nested-group-count {
+      font-size: 0.8rem;
+      color: #717274;
+      margin-top: 8px;
+    }
+  }
+  
+  &.account-group {
+    .account-count {
+      font-size: 0.8rem;
+      color: #717274;
+      margin-top: 8px;
+    }
+  }
 }
 
-.p-dropdown-item:hover {
-  background: var(--dropdown-hover-bg) !important;
-  color: var(--highlight-text-color) !important;
+/* Card Menu Styles */
+.card-menu {
+  .p-menu {
+    width: 200px;
+    
+    .p-menuitem {
+      &.destructive-action {
+        .p-menuitem-link {
+          color: #D0021B;
+          
+          &:hover {
+            background-color: rgba(208, 2, 27, 0.1);
+          }
+        }
+      }
+    }
+  }
 }
 
-.p-dropdown-item.p-highlight {
-  background: var(--dropdown-active-bg) !important;
-  color: var(--dropdown-active-text) !important;
+/* Card Actions */
+.card-actions {
+  .action-btn {
+    &.chart-action {
+      background-color: #0073CF;
+      color: white;
+    }
+    
+    &.title-link {
+      color: #002496;
+      font-weight: 500;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* Card Dividers */
+.card-divider {
+  height: 1px;
+  background-color: #E8ECEF;
+  margin: 12px 0;
+}
+
+/* Empty Card State */
+.empty-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  border: 1px dashed #D4D7D9;
+  background-color: #F5F7F9;
+}
+
+/* Customizing PrimeNG Checkbox variants */
+:host ::ng-deep {
+  // Blue variant (primary)
+  p-checkbox.p-checkbox-primary .p-checkbox-box.p-highlight {
+    border-color: #2196F3 !important;
+    background: #2196F3 !important;
+    
+    &:hover {
+      background: #1976D2 !important;
+      border-color: #1976D2 !important;
+    }
+  }
+  
+  // Gray variant
+  p-checkbox.p-checkbox-gray .p-checkbox-box.p-highlight {
+    border-color: #9E9E9E !important;
+    background: #9E9E9E !important;
+    
+    &:hover {
+      background: #757575 !important;
+      border-color: #757575 !important;
+    }
+  }
+  
+  // Red variant
+  p-checkbox.p-checkbox-red .p-checkbox-box.p-highlight {
+    border-color: #F44336 !important;
+    background: #F44336 !important;
+    
+    &:hover {
+      background: #E53935 !important;
+      border-color: #E53935 !important;
+    }
+  }
+  
+  // Indented checkboxes (with dotted line)
+  p-checkbox.p-checkbox-indented {
+    margin-left: 1.5rem;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: 50%;
+      height: 100%;
+      border-left: 2px dotted #B39DDB;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+/* PrimeNG Button Customizations */
+.p-button {
+  height: 36px;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  
+  /* Icon positioning */
+  &.p-button-icon-left .p-button-icon {
+    margin-right: 0.5rem;
+    margin-left: 0;
+    order: 0;
+  }
+
+  &.p-button-icon-right .p-button-icon {
+    margin-left: 0.5rem;
+    margin-right: 0;
+    order: 1;
+  }
+
+  &.p-button-icon-right .p-button-label {
+    order: 0;
+  }
+
+  &.p-button-icon-only .p-button-icon {
+    margin: 0;
+  }
+  
+  /* Primary Button Styles - Blue */
+  &.p-button-primary {
+    background-color: #003087;
+    border-color: #003087;
+    color: white;
+    
+    &:hover:not(.p-disabled) {
+      background-color: #1e5ad0;
+      border-color: #1e5ad0;
+      color: white;
+    }
+    
+    &:active:not(.p-disabled) {
+      background-color: #1747a8;
+      border-color: #1747a8;
+      color: white;
+    }
+  }
+  
+  /* Secondary Button Styles - White with border */
+  &.p-button-secondary {
+    background-color: white;
+    border-color: #D1D5DB;
+    color: #1E2937;
+    
+    &:hover:not(.p-disabled) {
+      background-color: #F9FAFB;
+      border-color: #D1D5DB;
+      color: #1E2937;
+    }
+    
+    &:active:not(.p-disabled) {
+      background-color: #F1F5F9;
+      border-color: #CBD5E1;
+      color: #1E2937;
+    }
+  }
+  
+  /* Danger Button Styles - Red */
+  &.p-button-danger {
+    background-color: #C41C1C;
+    border-color: #C41C1C;
+    color: white;
+    
+    &:hover:not(.p-disabled) {
+      background-color: #E74C4C;
+      border-color: #E74C4C;
+      color: white;
+    }
+    
+    &:active:not(.p-disabled) {
+      background-color: #b91c1c;
+      border-color: #b91c1c;
+      color: white;
+    }
+  }
+  
+  /* Outlined Button Variants */
+  &.p-button-outlined {
+    &.p-button-primary {
+      background-color: transparent;
+      border-color: #1e5ad0;
+      color: #1e5ad0;
+      
+      &:hover:not(.p-disabled) {
+        background-color: rgba(30, 90, 208, 0.04);
+        border-color: #1e5ad0;
+        color: #1e5ad0;
+      }
+      
+      &:active:not(.p-disabled) {
+        background-color: rgba(30, 90, 208, 0.12);
+        border-color: #1e5ad0;
+        color: #1e5ad0;
+      }
+    }
+    
+    &.p-button-danger {
+      background-color: transparent;
+      border-color: #C41C1C;
+      color: #C41C1C;
+      
+      &:hover:not(.p-disabled) {
+        background-color: rgba(196, 28, 28, 0.04);
+        border-color: #E74C4C;
+        color: #E74C4C;
+      }
+      
+      &:active:not(.p-disabled) {
+        background-color: rgba(196, 28, 28, 0.12);
+        border-color: #b91c1c;
+        color: #b91c1c;
+      }
+    }
+  }
+  
+  /* Text Button Styles */
+  &.p-button-text {
+    background-color: transparent;
+    border-color: transparent;
+    color: #003087;
+    
+    &:hover:not(.p-disabled) {
+      background-color: transparent;
+      border-color: transparent;
+      color: #1e5ad0;
+      text-decoration: underline;
+    }
+    
+    &:active:not(.p-disabled) {
+      background-color: transparent;
+      border-color: transparent;
+      color: #1747a8;
+    }
+    
+    &.p-button-danger {
+      background-color: transparent;
+      border-color: transparent;
+      color: #C41C1C;
+      
+      &:hover:not(.p-disabled) {
+        background-color: transparent;
+        border-color: transparent;
+        color: #E74C4C;
+        text-decoration: underline;
+      }
+      
+      &:active:not(.p-disabled) {
+        background-color: transparent;
+        border-color: transparent;
+        color: #b91c1c;
+      }
+    }
+  }
+  
+  /* Disabled state */
+  &.p-disabled,
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  /* Focus state */
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #1e5ad0;
+  }
+  
+  /* Icon-only buttons */
+  &.p-button-icon-only {
+    width: 36px;
+    padding: 0.5rem;
+  }
+  
+  /* Button sizes */
+  &.p-button-sm {
+    height: 30px;
+    font-size: 12px;
+    padding: 0.25rem 0.625rem;
+  }
+  
+  &.p-button-lg {
+    height: 44px;
+    font-size: 16px;
+    padding: 0.625rem 0.875rem;
+  }
+  
+  /* Loading state */
+  &.p-button-loading-icon {
+    pointer-events: none;
+  }
+  
+  &.p-button-loading {
+    .p-button-label,
+    .p-button-icon {
+      visibility: hidden;
+    }
+    
+    &:after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: p-button-spin 1s linear infinite;
+    }
+  }
+}
+
+@keyframes p-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Aggressive override for all PrimeNG components */
+:root {
+  --focus-ring-width: 0 !important;
+  --focus-ring-style: none !important;
+  --focus-ring-color: transparent !important;
+}
+
+/* Global override for all elements */
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Deep selector to override Angular component encapsulation */
+:host ::ng-deep {
+  /* Target all PrimeNG components */
+  .p-component,
+  .p-component *,
+  .p-button,
+  .p-inputtext,
+  .p-dropdown,
+  .p-multiselect,
+  .p-checkbox,
+  .p-radiobutton,
+  .p-calendar,
+  .p-datatable-header,
+  .p-datatable-row,
+  .p-tabview-nav-link,
+  .p-menu-item,
+  .p-menuitem-link,
+  .p-accordion-header-link,
+  .p-card,
+  .p-panel-header,
+  .p-dialog-header,
+  .p-dialog-footer {
+    &:focus {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  }
+  
+  /* Specific component states */
+  .p-focus,
+  .p-focus-visible,
+  *[class*="-focus"] {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Override the PrimeNG focus classes */
+  [class*="p-"][class*="-focus"],
+  [class*="p-"][class*="focus-visible"] {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Override for buttons specifically */
+  .p-button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Override for form components */
+  .p-inputtext:focus,
+  .p-dropdown:focus,
+  .p-dropdown-panel:focus,
+  .p-multiselect:focus,
+  .p-multiselect-panel:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Override for clickable items */
+  .p-selectable-row:focus,
+  .p-row-toggler:focus,
+  .p-paginator-element:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
 }

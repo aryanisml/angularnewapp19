@@ -1,3 +1,125 @@
+
+<div class="flex flex-1 gap-2 mt-2">
+<!-- Blue checkbox (checked) -->
+<p-checkbox [(ngModel)]="blueChecked" [binary]="true" styleClass="p-checkbox-primary" label="Blue Checkbox"></p-checkbox>
+
+<!-- Gray checkbox -->
+<p-checkbox [(ngModel)]="grayChecked" [binary]="true" styleClass="p-checkbox-gray" label="Gray Checkbox"></p-checkbox>
+
+<!-- Red checkbox -->
+<p-checkbox [(ngModel)]="redChecked" [binary]="true" styleClass="p-checkbox-red" label="Red Checkbox"></p-checkbox>
+
+<!-- Indented checkbox -->
+<p-checkbox [(ngModel)]="indentedChecked" [binary]="true" styleClass="p-checkbox-indented" label="Indented Checkbox"></p-checkbox>
+<!-- Button Examples for PrimeNG with Design System Styling -->
+</div>
+<!-- Primary Buttons -->
+<h3>Primary Buttons</h3>
+<div class="flex flex-wrap gap-2">
+  <!-- No Icon -->
+  <p-button label="View more" styleClass="p-button-primary"></p-button>
+  
+  <!-- Left Icon -->
+  <p-button label="View more" icon="pi pi-check" styleClass="p-button-primary"></p-button>
+  
+  <!-- Right Icon -->
+  <p-button label="View more" icon="pi pi-check" iconPos="right" styleClass="p-button-primary"></p-button>
+  
+  <!-- Icon Only -->
+  <p-button icon="pi pi-check" styleClass="p-button-primary p-button-icon-only"></p-button>
+</div>
+
+<!-- Secondary Buttons -->
+<h3>Secondary Buttons</h3>
+<div class="flex flex-wrap gap-2">
+  <!-- No Icon -->
+  <p-button label="View more" styleClass="p-button-secondary"></p-button>
+  
+  <!-- Left Icon -->
+  <p-button label="View more" icon="pi pi-check" styleClass="p-button-secondary"></p-button>
+  
+  <!-- Right Icon -->
+  <p-button label="View more" icon="pi pi-check" iconPos="right" styleClass="p-button-secondary"></p-button>
+  
+  <!-- Icon Only -->
+  <p-button icon="pi pi-check" styleClass="p-button-secondary p-button-icon-only"></p-button>
+</div>
+
+<!-- Danger Buttons -->
+<h3>Danger Buttons</h3>
+<div class="flex flex-wrap gap-2">
+  <!-- No Icon -->
+  <p-button label="View more" styleClass="p-button-danger"></p-button>
+  
+  <!-- Left Icon -->
+  <p-button label="View more" icon="pi pi-times" styleClass="p-button-danger"></p-button>
+  
+  <!-- Right Icon -->
+  <p-button label="View more" icon="pi pi-times" iconPos="right" styleClass="p-button-danger"></p-button>
+  
+  <!-- Icon Only -->
+  <p-button icon="pi pi-times" styleClass="p-button-danger p-button-icon-only"></p-button>
+</div>
+
+<!-- Outlined Buttons -->
+<h3>Outlined Buttons</h3>
+<div class="flex flex-wrap gap-2">
+  <!-- Primary Outlined -->
+  <p-button label="View more" styleClass="p-button-outlined p-button-primary"></p-button>
+  
+  <!-- Primary Outlined with Left Icon -->
+  <p-button label="View more" icon="pi pi-check" styleClass="p-button-outlined p-button-primary"></p-button>
+  
+  <!-- Danger Outlined -->
+  <p-button label="View more" styleClass="p-button-outlined p-button-danger"></p-button>
+  
+  <!-- Danger Outlined with Left Icon -->
+  <p-button label="View more" icon="pi pi-times" styleClass="p-button-outlined p-button-danger"></p-button>
+</div>
+
+<!-- Text Buttons -->
+<h3>Text Buttons</h3>
+<div class="flex flex-wrap gap-2">
+  <!-- Primary Text -->
+  <p-button label="View more" styleClass="p-button-text"></p-button>
+  
+  <!-- Primary Text with Icon -->
+  <p-button label="View more" icon="pi pi-check" styleClass="p-button-text"></p-button>
+  
+  <!-- Danger Text -->
+  <p-button label="View more" styleClass="p-button-text p-button-danger"></p-button>
+  
+  <!-- Danger Text with Icon -->
+  <p-button label="View more" icon="pi pi-times" styleClass="p-button-text p-button-danger"></p-button>
+</div>
+
+<!-- Link Buttons -->
+<h3>Link Style</h3>
+<div class="flex flex-wrap gap-2">
+  <button class="btn-link">View more</button>
+  <button class="btn-link danger">View more</button>
+</div>
+
+<!-- Button States -->
+<h3>Button States</h3>
+<div class="flex flex-wrap gap-2">
+  <!-- Normal -->
+  <p-button label="Normal" styleClass="p-button-primary"></p-button>
+  
+  <!-- Disabled -->
+  <p-button label="Disabled" styleClass="p-button-primary" [disabled]="true"></p-button>
+  
+  <!-- Loading -->
+  <p-button label="Loading" styleClass="p-button-primary" [loading]="true"></p-button>
+</div>
+
+<!-- Button Sizes -->
+<h3>Button Sizes</h3>
+<div class="flex flex-wrap gap-2 align-items-center">
+  <p-button label="Small" styleClass="p-button-primary p-button-sm"></p-button>
+  <p-button label="Normal" styleClass="p-button-primary"></p-button>
+  <p-button label="Large" styleClass="p-button-primary p-button-lg"></p-button>
+</div>
 <div class="card flex justify-center">
   <p-select [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
 </div>

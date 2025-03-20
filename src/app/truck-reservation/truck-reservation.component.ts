@@ -40,7 +40,10 @@ interface StatusOption {
   ]
 })
 export class TruckReservationComponent implements OnInit {
-
+  blueChecked: boolean = true;
+  grayChecked: boolean = true;
+  redChecked: boolean = true;
+  indentedChecked: boolean = false;
   title = 'angularbuild';
   cities: any[] | undefined;
 
