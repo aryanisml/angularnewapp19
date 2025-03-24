@@ -1,11 +1,20 @@
-import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection,
+  APP_INITIALIZER
+ } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { providePrimeNG } from 'primeng/config';
 import { routes } from './app.routes';
-
+import { TranslationService } from './translation.service';
 import Aura from '@primeng/themes/aura';
 import { provideRouter } from '@angular/router';
 import TruckRentalPreset from './style';
+import { provideHttpClient } from '@angular/common/http';
+
+
+
+export function initializeApp(translationService: TranslationService) {
+  return () => translationService.initialize();
+}
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,6 +29,13 @@ export const appConfig: ApplicationConfig = {
       theme: {
         preset: TruckRentalPreset
       }
-    })
+    }),
+    provideHttpClient(),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [TranslationService],
+      multi: true
+    }
   ]
 };

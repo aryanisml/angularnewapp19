@@ -12,6 +12,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { CheckboxModule } from 'primeng/checkbox';
 import { TagModule } from 'primeng/tag';
 import { SelectModule } from 'primeng/select';
+import { TranslatePipe } from '../translate.pipe';
 interface StatusOption {
   label: string;
   value: string;
@@ -36,7 +37,8 @@ interface StatusOption {
     CheckboxModule,
     TagModule,
     FormsModule,
-    SelectModule
+    SelectModule,
+    TranslatePipe
   ]
 })
 export class TruckReservationComponent implements OnInit {

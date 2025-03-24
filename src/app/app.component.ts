@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, input, SimpleChanges } from '@angular/core';
 import { TruckReservationComponent } from './truck-reservation/truck-reservation.component';
 
 import { SelectModule } from 'primeng/select';
@@ -14,22 +14,36 @@ interface City {
   imports: [TruckReservationComponent, SelectModule, CommonModule, FormsModule, DropdownModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  standalone:true
+  standalone:true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppComponent {
-   locationCode = input.required<string>();
+ 
+  @Input() locationCode: string = '';
+  
+  ngOnInit() {
+    console.log('Component initialized with LocationCode:', this.locationCode);
+    this.cities = [
+      { name: 'New York', code: 'NY' },
+      { name: 'Rome', code: 'RM' },
+      { name: 'London', code: 'LDN' },
+      { name: 'Istanbul', code: 'IST' },
+      { name: 'Paris', code: 'PRS' }
+  ];
+
+  }
+  
+ngOnChanges(changes: SimpleChanges) {
+    console.log('Input changes detected:', changes);
+    if (changes['locationCode']) {
+      console.log('New locationCode value:', changes['locationCode'].currentValue);
+    }
+  }
+
   title = 'angularbuild';
   cities: City[] | undefined;
 
   selectedCity: City | undefined;
 
-  ngOnInit() {
-      this.cities = [
-          { name: 'New York', code: 'NY' },
-          { name: 'Rome', code: 'RM' },
-          { name: 'London', code: 'LDN' },
-          { name: 'Istanbul', code: 'IST' },
-          { name: 'Paris', code: 'PRS' }
-      ];
-  }
+
 }
