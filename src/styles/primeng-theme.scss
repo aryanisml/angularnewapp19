@@ -1,0 +1,182 @@
+// @import './variables';
+
+// // This is a customized PrimeNG theme with your color palette
+// :root {
+//   // PrimeNG requires CSS variables for theming
+//   --primary-color: #{$primary-color};
+//   --primary-color-hover: #{$primary-hover};
+//   --text-color: #{$text-color};
+//   --text-color-secondary: #{$text-muted};
+//   --surface-border: #{$border-color};
+//   --surface-ground: #{$white};
+//   --surface-section: #{$bb-grey-10};
+//   --surface-card: #{$white};
+//   --surface-hover: #{$bb-grey-20};
+//   --focus-ring: #{$bb-10};
+//   --table-sub-header : #{$bb-grey-170};
+  
+//   // Component-specific variables
+//   --highlight-bg: #{$py-70};
+//   --highlight-text-color: #{$bb-grey-190};
+  
+//   // Status colors
+//   --success-color: #{$success-color};
+//   --warning-color: #{$warning-color};
+//   --error-color: #{$error-color};
+  
+//   // Shadows and elevations
+//   --surface-0: #{$white};
+//   --surface-50: #{$bb-grey-10};
+//   --surface-100: #{$bb-grey-20};
+//   --surface-200: #{$bb-grey-30};
+//   --surface-300: #{$bb-grey-40};
+//   --surface-500: #{$bb-grey-80};
+//   --surface-700: #{$bb-grey-130};
+//   --surface-900: #{$bb-grey-190};
+//   --surface-800: #{$bb-grey-180};
+// }
+
+// // // Custom component styling
+// // .p-component {
+// //     font-family: "Avenir LT Std", "Arial", sans-serif;
+// // }
+
+// // // Button styling
+// // .p-button {
+// //   background: var(--primary-color);
+// //   border-color: var(--primary-color);
+// //   color: #{$white};
+  
+// //   &:enabled:hover {
+// //     background: var(--primary-color-hover);
+// //     border-color: var(--primary-color-hover);
+// //   }
+  
+// //   &.p-button-secondary {
+// //     background: #{$secondary-color};
+// //     border-color: #{$secondary-color};
+// //     color: #{$bb-grey-190};
+    
+// //     &:enabled:hover {
+// //       background: #{$py-60};
+// //       border-color: #{$py-60};
+// //     }
+// //   }
+  
+// //   &.p-button-success {
+// //     background: #{$success-color};
+// //     border-color: #{$success-color};
+// //   }
+  
+// //   &.p-button-warning {
+// //     background: #{$warning-color};
+// //     border-color: #{$warning-color};
+// //   }
+  
+// //   &.p-button-danger {
+// //     background: #{$error-color};
+// //     border-color: #{$error-color};
+// //   }
+  
+// //   &.p-button-text {
+// //     color: var(--primary-color);
+    
+// //     &:enabled:hover {
+// //       background: #{$bb-grey-10};
+// //       color: var(--primary-color-hover);
+// //     }
+// //   }
+// // }
+
+// // // Input styling
+// // .p-inputtext {
+// //   background: #{$white};
+// //   border-color: #{$border-color};
+  
+// //   &:enabled:focus {
+// //     border-color: var(--primary-color);
+// //     box-shadow: 0 0 0 2px #{$bb-10};
+// //   }
+  
+// //   &::placeholder {
+// //     color: #{$bb-grey-130};
+// //   }
+// // }
+
+// // // Table styling
+// // .p-datatable {
+// //   .p-datatable-thead > tr > th {
+// //     background: #{$bb-grey-20};
+// //     color: #{$text-color};
+// //     border-color: #{$divider-color};
+// //   }
+  
+// //   .p-datatable-tbody > tr {
+// //     border-color: #{$divider-color};
+    
+// //     &:nth-child(even) {
+// //       background: #{$bb-grey-10};
+// //     }
+    
+// //     &:hover {
+// //       background: #{$bb-grey-20};
+// //     }
+// //   }
+// // }
+
+// // // Toast notifications
+// // .p-toast {
+// //   .p-toast-message {
+// //     &.p-toast-message-success {
+// //       background: #{$success-bg};
+// //       border-left: 6px solid #{$success-color};
+// //     }
+    
+// //     &.p-toast-message-warn {
+// //       background: #{$warning-bg};
+// //       border-left: 6px solid #{$warning-color};
+// //     }
+    
+// //     &.p-toast-message-error {
+// //       background: #{$error-bg};
+// //       border-left: 6px solid #{$error-color};
+// //     }
+// //   }
+// // }
+
+// // // Dropdown and select
+// // .p-dropdown {
+// //   .p-dropdown-panel {
+// //     background: #{$white};
+// //     border-color: #{$border-color};
+   
+// //   }
+  
+// //   .p-dropdown-item.p-highlight {
+// //     background: #{$bb-10};
+// //     color: var(--primary-color);
+// //   }
+// //   .p-dropdown-items .p-dropdown-item{
+// //     border:0 none!important;
+// //   }
+// // }
+
+// // // Tabs
+// // .p-tabview {
+// //   .p-tabview-nav {
+// //     li.p-highlight .p-tabview-nav-link {
+// //       border-bottom: 2px solid #{$py-70};
+// //     }
+// //   }
+// // }
+
+// // // Wizard
+// // .p-steps {
+// //   .p-steps-item.p-highlight .p-steps-number {
+// //     background: #{$py-70};
+// //   }
+  
+// //   .p-steps-item.p-highlight .p-steps-title {
+// //     color: var(--primary-color);
+// //   }
+// // }

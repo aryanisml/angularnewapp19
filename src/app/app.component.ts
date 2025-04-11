@@ -5,13 +5,14 @@ import { SelectModule } from 'primeng/select';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
 interface City {
   name: string;
   code: string;
 }
 @Component({
   selector: 'app-root',
-  imports: [TruckReservationComponent, SelectModule, CommonModule, FormsModule, DropdownModule],
+  imports: [TruckReservationComponent, SelectModule, CommonModule, FormsModule, DropdownModule, ButtonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone:true,

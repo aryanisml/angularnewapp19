@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, signal } from '@angular/core';
+import { Component, HostListener, OnInit, signal, ViewEncapsulation } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -13,9 +13,23 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { TagModule } from 'primeng/tag';
 import { SelectModule } from 'primeng/select';
 import { TranslatePipe } from '../translate.pipe';
+import { ReservationCardComponent } from '../reservation-card/reservation-card.component';
 interface StatusOption {
   label: string;
   value: string;
+}
+
+interface Reservation {
+  name: string;
+  unitNumber: string;
+  towNumber: string;
+  vehicleType: string;
+  tripType: string;
+  customerType: string;
+  hasPhone: boolean;
+  hasFavorite: boolean;
+  hasWarning: boolean;
+  accentColor: 'green' | 'red' | 'blue' | 'gray';
 }
 
 
@@ -38,7 +52,8 @@ interface StatusOption {
     TagModule,
     FormsModule,
     SelectModule,
-    TranslatePipe
+    // TranslatePipe
+    ReservationCardComponent
   ]
 })
 export class TruckReservationComponent implements OnInit {
@@ -48,9 +63,46 @@ export class TruckReservationComponent implements OnInit {
   indentedChecked: boolean = false;
   title = 'angularbuild';
   cities: any[] | undefined;
-
+  pizza: string[] = [];
   selectedCity: any | undefined;
-
+  reservations: Reservation[] = [
+    {
+      name: 'Hubert Blaine Wolfe',
+      unitNumber: '#544387',
+      towNumber: '#987654',
+      vehicleType: 'Refrigerator',
+      tripType: 'Round Trip',
+      customerType: 'Consumer',
+      hasPhone: true,
+      hasFavorite: true,
+      hasWarning: false,
+      accentColor: 'green'
+    },
+    {
+      name: 'Alexander Dough',
+      unitNumber: '#542111',
+      towNumber: '#987654',
+      vehicleType: 'Box Truck',
+      tripType: 'One Way',
+      customerType: 'Commercial',
+      hasFavorite: true,
+      hasWarning: true,
+      hasPhone: false,
+      accentColor: 'red'
+    },
+    {
+      name: 'John Stone',
+      unitNumber: '#544387',
+      towNumber: '#987654',
+      vehicleType: 'Refrigerator',
+      tripType: 'Lease',
+      customerType: 'Substitute',
+      hasPhone: false,
+      hasFavorite: true,
+      hasWarning: false,
+      accentColor: 'green'
+    }
+  ];
  
 
 
@@ -119,44 +171,44 @@ export class TruckReservationComponent implements OnInit {
     }
   }
   
-  reservations = [
-    { 
-      id: '98765432', 
-      customer: 'John Stone', 
-      phone: '(215) 455 1212',
-      vehicleType: 'Refrigerator', 
-      tripType: 'One Way',
-      pickupTime: '02/27/2025 01:25 PM',
-      pickupLocation: '0666-10 25 Riverfront, Penske Plaza, Reading, PA 19602',
-      dropoffTime: '03/01/2025 04:15 PM',
-      dropoffLocation: '6370-10 802 Holly Springs Ave, VA 23224',
-      status: 'Confirmed'
-    },
-    { 
-      id: '98765433', 
-      customer: 'Brian Chase', 
-      phone: '(302) 555 7890',
-      vehicleType: 'Parcel Van', 
-      tripType: 'Round Trip',
-      pickupTime: '02/28/2025 09:30 AM',
-      pickupLocation: '0666-10 25 Riverfront, Penske Plaza, Reading, PA 19602',
-      dropoffTime: '03/02/2025 11:45 AM',
-      dropoffLocation: '6370-10 802 Holly Springs Ave, VA 23224',
-      status: 'Active'
-    },
-    { 
-      id: '98765434', 
-      customer: 'Alexander Dough', 
-      phone: '(717) 555 4321',
-      vehicleType: 'Box Truck', 
-      tripType: 'One Way',
-      pickupTime: '03/01/2025 10:15 AM',
-      pickupLocation: '0666-10 25 Riverfront, Penske Plaza, Reading, PA 19602',
-      dropoffTime: '03/03/2025 01:30 PM',
-      dropoffLocation: '6370-10 802 Holly Springs Ave, VA 23224',
-      status: 'Pending'
-    }
-  ];
+  // reservations = [
+  //   { 
+  //     id: '98765432', 
+  //     customer: 'John Stone', 
+  //     phone: '(215) 455 1212',
+  //     vehicleType: 'Refrigerator', 
+  //     tripType: 'One Way',
+  //     pickupTime: '02/27/2025 01:25 PM',
+  //     pickupLocation: '0666-10 25 Riverfront, Penske Plaza, Reading, PA 19602',
+  //     dropoffTime: '03/01/2025 04:15 PM',
+  //     dropoffLocation: '6370-10 802 Holly Springs Ave, VA 23224',
+  //     status: 'Confirmed'
+  //   },
+  //   { 
+  //     id: '98765433', 
+  //     customer: 'Brian Chase', 
+  //     phone: '(302) 555 7890',
+  //     vehicleType: 'Parcel Van', 
+  //     tripType: 'Round Trip',
+  //     pickupTime: '02/28/2025 09:30 AM',
+  //     pickupLocation: '0666-10 25 Riverfront, Penske Plaza, Reading, PA 19602',
+  //     dropoffTime: '03/02/2025 11:45 AM',
+  //     dropoffLocation: '6370-10 802 Holly Springs Ave, VA 23224',
+  //     status: 'Active'
+  //   },
+  //   { 
+  //     id: '98765434', 
+  //     customer: 'Alexander Dough', 
+  //     phone: '(717) 555 4321',
+  //     vehicleType: 'Box Truck', 
+  //     tripType: 'One Way',
+  //     pickupTime: '03/01/2025 10:15 AM',
+  //     pickupLocation: '0666-10 25 Riverfront, Penske Plaza, Reading, PA 19602',
+  //     dropoffTime: '03/03/2025 01:30 PM',
+  //     dropoffLocation: '6370-10 802 Holly Springs Ave, VA 23224',
+  //     status: 'Pending'
+  //   }
+  // ];
 
   filterForm!: FormGroup;
   newReservationForm!: FormGroup;

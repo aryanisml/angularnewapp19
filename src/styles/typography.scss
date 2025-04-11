@@ -1,0 +1,405 @@
+/* Penske Typography Integration */
+
+/* Font Face Declarations */
+// @font-face {
+//     font-family: "Avenir LT Std";
+//     src: url("/assets/fonts//AvenirLTW05-35Light.woff") format("woff"),
+//          url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-35Light.woff2") format("woff2");
+//     font-weight: 100;
+//     font-style: normal;
+// }
+ 
+// @font-face {
+//     font-family: "Avenir LT Std";
+//     src: url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-35LightOblique.woff") format("woff"),
+//          url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-35LightOblique.woff2") format("woff2");
+//     font-weight: 100;
+//     font-style: oblique;
+// }
+ 
+@font-face {
+  font-family: "Avenir LT Std";
+  src: url("/assets/fonts/AvenirLTW05-45Book.woff") format("woff"),
+       url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-45Book.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Avenir LT Std";
+  src: url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-45BookOblique.woff") format("woff"),
+       url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-45BookOblique.woff2") format("woff2");
+  font-weight: 200;
+  font-style: oblique;
+}
+
+// @font-face {
+//     font-family: "Avenir LT Std";
+//     src: url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-55Oblique.woff") format("woff"),
+//          url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-55Oblique.woff2") format("woff2");
+//     font-weight: 300;
+//     font-style: oblique;
+// }
+
+// @font-face {
+//     font-family: "Avenir LT Std";
+//     src: url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-55Roman.woff)") format("woff"),
+//          url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-55Roman.woff2") format("woff2");
+//     font-weight: 400;
+//     font-style: normal;
+// }
+
+@font-face {
+  font-family: "Avenir LT Std";
+  src: url("/assets/fonts/AvenirLTW05-65Medium.woff") format("woff"),
+       url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-65Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Avenir LT Std";
+  src: url("/assets/fonts/AvenirLTW05-65Medium.woff") format("woff"),
+       url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-65MediumOblique.woff2") format("woff2");
+  font-weight: 500;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "Avenir LT Std";
+  src: url("/assets/fonts/AvenirLTW05-85Heavy.woff") format("woff"),
+       url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-85Heavy.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Avenir LT Std";
+  src: url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-85HeavyOblique.woff") format("woff"),
+       url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-85HeavyOblique.woff2") format("woff2");
+  font-weight: 700;
+  font-style: oblique;
+}
+
+@font-face {
+  font-family: "Avenir LT Std";
+  src: url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-95Black.woff") format("woff"),
+       url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-95Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Avenir LT";
+  src: url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-95BlackOblique.woff") format("woff"),
+       url("https://fonts.gopenske.com/avenir/lt/AvenirLTW05-95BlackOblique.woff2") format("woff2");
+  font-weight: 900;
+  font-style: oblique;
+}
+
+/* Base variables */
+:root {
+--font-family-primary: "Avenir LT Std", "Arial", sans-serif;
+--typography1: #171718; /* Replace with actual Penske color if known */
+}
+
+/* Body Typography Mixins */
+@mixin desktop-body-body-1-heavy() {
+font-size: 1rem;
+text-decoration: none;
+font-family: var(--font-family-primary);
+font-weight: 700;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 1.5rem;
+text-indent: 0rem;
+margin-bottom: 0rem;
+text-transform: none;
+}
+
+@mixin desktop-body-body-1-medium() {
+font-size: 1rem;
+text-decoration: none;
+font-family: var(--font-family-primary);
+font-weight: 500;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 1.5rem;
+text-indent: 0rem;
+margin-bottom: 0rem;
+text-transform: none;
+}
+
+@mixin desktop-body-body-1-book() {
+font-size: 1rem;
+text-decoration: none;
+font-family: var(--font-family-primary);
+font-weight: 200;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 1.5rem;
+text-indent: 0rem;
+margin-bottom: 0.5rem;
+text-transform: none;
+}
+
+@mixin desktop-body-body-2-heavy() {
+font-size: 0.875rem;
+text-decoration: none;
+font-family: var(--font-family-primary);
+font-weight: 700;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 1.25rem;
+text-indent: 0rem;
+margin-bottom: 0rem;
+text-transform: none;
+}
+
+@mixin desktop-body-body-2-medium() {
+font-size: 0.875rem;
+text-decoration: none;
+font-family: var(--font-family-primary);
+font-weight: 500;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 1.25rem;
+text-indent: 0rem;
+margin-bottom: 0rem;
+text-transform: none;
+}
+
+@mixin desktop-body-body-2-book() {
+font-size: 0.875rem;
+text-decoration: none;
+font-family: var(--font-family-primary);
+font-weight: 200;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 1.25rem;
+text-indent: 0rem;
+margin-bottom: 0rem;
+text-transform: none;
+}
+
+@mixin desktop-body-body-3-heavy() {
+font-size: 0.75rem;
+text-decoration: none;
+font-family: var(--font-family-primary);
+font-weight: 700;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 1.125rem;
+text-indent: 0rem;
+margin-bottom: 0rem;
+text-transform: none;
+}
+
+@mixin desktop-body-body-3-medium() {
+font-size: 0.75rem;
+text-decoration: none;
+font-family: var(--font-family-primary);
+font-weight: 500;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 1.125rem;
+text-indent: 0rem;
+margin-bottom: 0rem;
+text-transform: none;
+}
+
+@mixin desktop-body-body-3-book() {
+font-size: 0.75rem;
+text-decoration: none;
+font-family: var(--font-family-primary);
+font-weight: 200;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 1.125rem;
+text-indent: 0rem;
+margin-bottom: 0rem;
+text-transform: none;
+}
+
+@mixin desktop-body-body-4-heavy() {
+font-size: 0.625rem;
+text-decoration: none;
+font-family: var(--font-family-primary);
+font-weight: 700;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 1rem;
+text-indent: 0rem;
+margin-bottom: 0rem;
+text-transform: none;
+}
+
+@mixin desktop-body-body-4-medium() {
+font-size: 0.625rem;
+text-decoration: none;
+font-family: var(--font-family-primary);
+font-weight: 500;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 1rem;
+text-indent: 0rem;
+margin-bottom: 0rem;
+text-transform: none;
+}
+
+@mixin desktop-body-body-4-book() {
+font-size: 0.625rem;
+text-decoration: none;
+font-family: var(--font-family-primary);
+font-weight: 200;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 1rem;
+text-indent: 0rem;
+margin-bottom: 0rem;
+text-transform: none;
+}
+
+/* Body Typography Classes */
+.desktop-body-1-heavy {
+@include desktop-body-body-1-heavy;
+}
+
+.desktop-body-1-medium {
+@include desktop-body-body-1-medium;
+}
+
+.desktop-body-1-book {
+@include desktop-body-body-1-book;
+}
+
+.desktop-body-2-heavy {
+@include desktop-body-body-2-heavy;
+}
+
+.desktop-body-2-medium {
+@include desktop-body-body-2-medium;
+}
+
+.desktop-body-2-book {
+@include desktop-body-body-2-book;
+}
+
+.desktop-body-3-heavy {
+@include desktop-body-body-3-heavy;
+}
+
+.desktop-body-3-medium {
+@include desktop-body-body-3-medium;
+}
+
+.desktop-body-3-book {
+@include desktop-body-body-3-book;
+}
+
+.desktop-body-4-heavy {
+@include desktop-body-body-4-heavy;
+}
+
+.desktop-body-4-medium {
+@include desktop-body-body-4-medium;
+}
+
+.desktop-body-4-book {
+@include desktop-body-body-4-book;
+}
+
+/* Heading Styles */
+h1 {
+font-size: 1.625rem !important;
+text-decoration: none;
+font-family: var(--font-family-primary) !important;
+font-weight: 700 !important;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 2.4375rem !important;
+text-indent: 0rem;
+margin-bottom: 0rem !important;
+text-transform: none;
+color: var(--typography1) !important;
+text-align: left;
+}
+
+h2 {
+font-size: 1.375rem !important;
+text-decoration: none;
+font-family: var(--font-family-primary) !important;
+font-weight: 500 !important;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 2.0625rem !important;
+text-indent: 0rem;
+margin-bottom: 0rem !important;
+text-transform: none;
+color: var(--typography1) !important;
+text-align: left;
+}
+
+h3 {
+font-size: 1.125rem !important;
+text-decoration: none;
+font-family: var(--font-family-primary) !important;
+font-weight: 500 !important;
+font-style: normal;
+font-stretch: normal;
+letter-spacing: 0rem;
+line-height: 1.6875rem !important;
+text-indent: 0rem;
+margin-bottom: 0rem !important;
+text-transform: none;
+color: var(--typography1) !important;
+text-align: left;
+}
+
+/* Base body typography */
+body {
+font-family: var(--font-family-primary);
+font-size: 1rem;
+line-height: 1.5rem;
+font-weight: 200;
+color: var(--typography1);
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+/* Links */
+a {
+text-decoration: none;
+transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+/* Additional Utility Classes */
+.text-left {
+text-align: left;
+}
+
+.text-center {
+text-align: center;
+}
+
+.text-right {
+text-align: right;
+}

@@ -1,0 +1,86 @@
+// Color Variables
+$white: #FFFFFF;
+
+// BB Grey Colors
+$bb-grey-10: #F7FAFD; // Frost Gray
+$bb-grey-20: #F4F8FB;
+$bb-grey-30: #F1F5F8;
+$bb-grey-40: #EDF1F4;
+$bb-grey-50: #E8ECEF;
+$bb-grey-80: #D4D7D9;
+$bb-grey-110: #B3B6B8;
+$bb-grey-130: #959899;
+$bb-grey-150: #717274;
+$bb-grey-160: #5C5D5E;
+$bb-grey-170: #464747;
+$bb-grey-180: #2F2F30;
+$bb-grey-190: #171718;
+
+// BB Blue Colors
+$bb-0: #F2F9FF;
+$bb-2-5: #EAF6FF;
+$bb-10: #D2ECFF;
+$bb-30: #96D0FC;
+$bb-50: #5FB3F5;
+$bb-100: #0073CF; // Bright Blue
+
+// RB Blue Colors
+$rb-100: #113BC2;
+$rb-130: #002496; // Reflex Blue
+$rb-140: #002084;
+$rb-150: #001B71;
+$rb-160: #00165C; // Midnight Blue
+$rb-170: #001146;
+$rb-180: #000B2F;
+
+// PY Yellow Colors
+$py-2-5: #FFFCE6;
+$py-30: #FFED7C;
+$py-60: #FFD41C;
+$py-70: #FECB00; // Penske Yellow
+
+// Green Colors
+$green-0: #F2FFF3;
+$green-140: #068A15;
+$green-170: #02490A;
+
+// Orange Colors
+$orange-0: #FFF9F2;
+$orange-80: #F59006;
+$orange-dark: #D14900;
+
+// Red Colors
+$red-0: #FFF2F3;
+$red-100: #D0021B;
+$red-140: #8E0011;
+
+// Semantic Colors
+$primary-color: $rb-130; // Reflex Blue
+$primary-hover: $bb-100; // Bright Blue
+$secondary-color: $py-70; // Penske Yellow
+
+$text-color: $bb-grey-190;
+$text-muted: $bb-grey-150;
+$text-disabled: $bb-grey-130;
+
+$border-color: $bb-grey-80;
+$divider-color: $bb-grey-50;
+
+$action-bar-bg: $bb-grey-40;
+$success-color: $green-140;
+$warning-color: $orange-80;
+$error-color: $red-100;
+
+$success-bg: $green-0;
+$warning-bg: $orange-0;
+$error-bg: $red-0;
+
+$left-nav-bg: $rb-170;
+$left-nav-expanded-bg: $rb-160;
+$left-nav-active-bg: $rb-140;
+$left-nav-selected: $py-70;
+
+$wizard-header-bg: $rb-130;
+$wizard-subnav-bg: $white;
+$wizard-subnav-highlight: $bb-0;
+$wizard-footer-bg: $bb-grey-30;
