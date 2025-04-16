@@ -1,0 +1,21 @@
+@import '../../styles/typography-utilities.scss';
+
+.reservation-title {
+    @include body-1-heavy();
+    word-break: break-word ;
+}
+
+.reservation-unit-label {
+    @include body-2-book();
+    color:#717274;
+}
+
+.reservation-unit-value {
+    @include body-2-book();
+    color:#171718;
+}
+
+.subTitle {
+    @include body-2-book();
+    color:#171718;
+}

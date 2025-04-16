@@ -1,5 +1,6 @@
 /* First import your typography */
 @use './styles/typography.scss';
+@use './styles/typography-utilities.scss';
 
 /* Then modify your Tailwind imports to preserve your typography */
 @tailwind base {

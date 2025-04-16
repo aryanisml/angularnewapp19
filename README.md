@@ -57,3 +57,6 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+https://www.figma.com/design/28EU7guM9xUm3eN42NFDmg/Whiteboard-Planner?node-id=2875-167098&m=dev

@@ -1,48 +1,92 @@
 <!-- reservation-card.component.html -->
-<div class="w-full mx-auto" style="max-width: 430px !important;">
-    <div class="relative flex items-center border border-gray-200 rounded-md overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
-      <!-- Left accent bar - Width is 4px according to Figma -->
-      <div class="absolute left-0 top-0 bottom-0 w-1.5 {{getAccentColor()}}"></div>
-      
-      <!-- Card content - Following Figma layout -->
-      <div class="flex-1 py-3 pr-3 pl-4 flex flex-col gap-2">
-        <!-- Top row with name and icons -->
-        <div class="flex justify-between items-start">
-          <!-- Name -->
-          <div class="font-medium text-gray-800 truncate">{{name}}</div>
-          
-          <!-- Icons -->
-          <div class="flex items-center gap-2">
-            <div *ngIf="hasPhone" class="rounded-full bg-gray-200 p-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-              </svg>
+<div class="w-full mt-2" style="max-width: 430px !important">
+  <div class="relative flex items-center justify-between border border-gray-200 rounded-md overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow"
+  [ngClass]="{'bg-[#EAF6FF]': isSelected, 'bg-white': !isSelected}">
+    @if (assigned) {
+      <div class="absolute left-0 top-0 bottom-0 w-4 {{ getAccentColor() }}"></div>
+    }@else { 
+      <div data-status="Not assigned" class="w-4 h-full absolute bg-[#F1F5F8] overflow-hidden">
+        <div class="w-3 h-0 left-[-2px] top-[-6.30px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-8 h-0 left-[-2px] top-[30.67px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-3 h-0 left-[-0.09px] top-[-3.22px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-7 h-0 left-[-0.09px] top-[33.75px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-3 h-0 left-[-0.09px] top-[1.40px] absolute origin-top-left rotate-[-38.83deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-7 h-0 left-[-0.09px] top-[38.37px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-3 h-0 left-[-0.09px] top-[6.02px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-8 h-0 left-[-0.09px] top-[42.99px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-5 h-0 left-[-0.09px] top-[10.64px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-8 h-0 left-[-0.09px] top-[47.61px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-6 h-0 left-[-0.09px] top-[15.26px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-7 h-0 left-[-0.09px] top-[52.23px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-7 h-0 left-[-0.09px] top-[19.89px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-8 h-0 left-[-0.09px] top-[56.85px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-7 h-0 left-[-0.09px] top-[24.51px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-8 h-0 left-[-0.09px] top-[61.47px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-8 h-0 left-[-0.09px] top-[66.09px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-8 h-0 left-[1.65px] top-[69.31px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-3 h-0 left-[-0.09px] top-[70.71px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-3 h-0 left-[-0.09px] top-[75.33px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-3 h-0 left-[-0.09px] top-[79.96px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+        <div class="w-3 h-0 left-[1.83px] top-[83.03px] absolute origin-top-left rotate-[-38.84deg] outline outline-1 outline-offset-[-0.50px]  outline-[#717274]"></div>
+    </div>
+    }
+   
+    
+    <!-- Left content group -->
+    <div class="self-stretch inline-flex flex-col justify-start items-start gap-0.5 pl-4 pt-2">
+      <div class="inline-flex justify-start items-center gap-2 pl-2">
+        <div class="max-w-36 justify-start text-Actions-Button-Secondary-Hover-Text text-base reservation-title truncate leading-normal"  title="{{ name }}">
+          {{ name }}
+        </div>
+        <div class="flex justify-start items-center gap-2">
+          <div class="w-px h-4 bg-[#E8ECEF]"></div>
+          <div class="flex justify-start items-center gap-1">
+            <div class="justify-start reservation-unit-label leading-tight">
+              Unit:
             </div>
-            <div *ngIf="hasFavorite" class="rounded-full bg-orange-100 p-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-            </div>
-            <div *ngIf="hasWarning" class="rounded-full bg-red-100 p-1">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-              </svg>
+            <div class="justify-start text-sm reservation-unit-value leading-tight">
+              {{ unitNumber }}
             </div>
           </div>
         </div>
-        
-        <!-- Middle row with unit and tow numbers -->
-        <div class="flex text-sm text-gray-500">
-          <span class="mr-4">Unit: {{unitNumber}}</span>
-          <span>Tow: {{towNumber}}</span>
-        </div>
-        
-        <!-- Bottom row with tags -->
-        <div class="flex flex-wrap gap-2">
-          <span class="px-2 py-1 bg-gray-100 text-xs rounded-full text-gray-600">{{vehicleType}}</span>
-          <span class="px-2 py-1 bg-gray-100 text-xs rounded-full text-gray-600">{{tripType}}</span>
-          <span class="px-2 py-1 bg-gray-100 text-xs rounded-full text-gray-600">{{customerType}}</span>
+        <div class="flex justify-start items-center gap-2">
+          <div class="w-px h-4 bg-[#E8ECEF]"></div>
+          <div class="flex justify-start items-center gap-1">
+            <div class="justify-start reservation-unit-label leading-tight">
+              Tow:
+            </div>
+            <div class="justify-start text-CoreColors-BB-Grey-190-171718 text-sm reservation-unit-value leading-tight">
+              {{ towNumber }}
+            </div>
+          </div>
         </div>
       </div>
+      <div class="self-stretch inline-flex justify-start items-center gap-2 pl-2 pb-2">
+        <div class="flex justify-start items-center gap-1">
+            <div class="justify-start subTitle text-sm leading-tight">Cube Van Shelf </div>
+        </div>
+        <div class="w-px h-4 bg-[#E8ECEF]"></div>
+        <div class="justify-start subTitle text-smleading-tight">Round Trip</div>
+        <div class="w-px h-4 bg-[#E8ECEF]"></div>
+        <div class="justify-start subTitle text-sm  leading-tight">Consumer</div>
+        <div class="w-px h-4 bg-[#E8ECEF]"></div>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.5 3C16.3125 3 17 3.6875 17 4.5V15.5C17 16.3438 16.3125 17 15.5 17H4.5C3.65625 17 3 16.3438 3 15.5V4.5C3 3.6875 3.65625 3 4.5 3H15.5ZM14.9688 12.625C14.9688 12.5938 14.9688 12.5625 15 12.5C14.9688 12.3125 14.875 12.1562 14.6875 12.0938L12.5 11.1562C12.4688 11.125 12.4062 11.125 12.3438 11.0938C12.1875 11.125 12.0625 11.1875 11.9688 11.2812L11 12.4688C9.46875 11.75 8.25 10.5312 7.53125 9L8.71875 8.03125C8.8125 7.9375 8.875 7.8125 8.90625 7.65625C8.875 7.59375 8.875 7.53125 8.84375 7.5L7.90625 5.3125C7.84375 5.125 7.6875 5.03125 7.5 5C7.4375 5.03125 7.40625 5.03125 7.375 5.03125L5.34375 5.5C5.15625 5.5625 5 5.71875 5 5.9375C5 10.9688 9.0625 15 14.0625 15C14.2812 15 14.4688 14.875 14.5 14.6562L14.9688 12.625Z" fill="#606060"/>
+          </svg>
+        <div class="w-px h-4 bg-[#E8ECEF]"></div>
+        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.5625 2.625C15.125 2.875 15.5 3.40625 15.5 4C15.5 10.9375 11.25 14.7812 8.5625 15.9062C8.1875 16.0625 7.78125 16.0625 7.40625 15.9062C4.0625 14.5 0.5 10.2188 0.5 4C0.5 3.40625 0.84375 2.875 1.40625 2.625L7.40625 0.125C7.59375 0.0625 7.78125 0.03125 8 0.03125C8.1875 0.03125 8.375 0.0625 8.5625 0.125L14.5625 2.625ZM13.0938 6.1875C13.2812 6 13.2812 5.6875 13.0938 5.5L12.375 4.78125C12.1875 4.59375 11.875 4.59375 11.6875 4.78125L7 9.46875L4.78125 7.28125C4.59375 7.09375 4.28125 7.09375 4.09375 7.28125L3.375 8C3.1875 8.1875 3.1875 8.5 3.375 8.6875L6.625 11.9375C6.8125 12.1562 7.15625 12.1562 7.34375 11.9375L13.0938 6.1875Z" fill="#FF8D00"/>
+          </svg>
+    </div>
+    </div>
+    
+    <!-- Right content group (plus button) -->
+    <div class="p-1.5 rounded-[50px] flex justify-start items-center gap-2.5 ml-auto">
+      <button class="flex items-center justify-center text-[#717274] text-xl font-light rounded-full p-2 transition-colors"  (click)="toggleSelection()">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.1875 9.5625C17.3438 9.5625 17.5 9.71875 17.5 9.875V11.125C17.5 11.3203 17.3438 11.4375 17.1875 11.4375H10.9375V17.6875C10.9375 17.8828 10.7812 18 10.625 18H9.375C9.17969 18 9.0625 17.8828 9.0625 17.6875V11.4375H2.8125C2.61719 11.4375 2.5 11.3203 2.5 11.125V9.875C2.5 9.71875 2.61719 9.5625 2.8125 9.5625H9.0625V3.3125C9.0625 3.15625 9.17969 3 9.375 3H10.625C10.7812 3 10.9375 3.15625 10.9375 3.3125V9.5625H17.1875Z" fill="#717274"/>
+        </svg>
+      </button>
     </div>
   </div>
+</div>

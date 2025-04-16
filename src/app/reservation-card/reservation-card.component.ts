@@ -6,7 +6,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-reservation-card',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './reservation-card.component.html'
+  templateUrl: './reservation-card.component.html',
+  styleUrls: ['./reservation-card.component.scss'],
 })
 export class ReservationCardComponent {
   @Input() name: string = '';
@@ -19,7 +20,9 @@ export class ReservationCardComponent {
   @Input() hasFavorite: boolean = false;
   @Input() hasWarning: boolean = false;
   @Input() accentColor: 'green' | 'red' | 'blue' | 'gray' = 'green';
-
+  @Input() assigned : boolean = true;
+  
+  isSelected: boolean = false;
   getAccentColor(): string {
     const colorMap = {
       'green': 'bg-green-600',
@@ -28,5 +31,8 @@ export class ReservationCardComponent {
       'gray': 'bg-gray-400'
     };
     return colorMap[this.accentColor];
+  }
+  toggleSelection(): void {
+    this.isSelected = !this.isSelected;
   }
 }

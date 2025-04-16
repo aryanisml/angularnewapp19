@@ -14,6 +14,7 @@ import { TagModule } from 'primeng/tag';
 import { SelectModule } from 'primeng/select';
 import { TranslatePipe } from '../translate.pipe';
 import { ReservationCardComponent } from '../reservation-card/reservation-card.component';
+import { ReservationAccordionComponent } from '../reservation-accordion/reservation-accordion.component';
 interface StatusOption {
   label: string;
   value: string;
@@ -30,6 +31,7 @@ interface Reservation {
   hasFavorite: boolean;
   hasWarning: boolean;
   accentColor: 'green' | 'red' | 'blue' | 'gray';
+  assigned : boolean;
 }
 
 
@@ -53,7 +55,8 @@ interface Reservation {
     FormsModule,
     SelectModule,
     // TranslatePipe
-    ReservationCardComponent
+    ReservationCardComponent,
+    ReservationAccordionComponent
   ]
 })
 export class TruckReservationComponent implements OnInit {
@@ -76,7 +79,8 @@ export class TruckReservationComponent implements OnInit {
       hasPhone: true,
       hasFavorite: true,
       hasWarning: false,
-      accentColor: 'green'
+      accentColor: 'green',
+      assigned:true
     },
     {
       name: 'Alexander Dough',
@@ -88,7 +92,8 @@ export class TruckReservationComponent implements OnInit {
       hasFavorite: true,
       hasWarning: true,
       hasPhone: false,
-      accentColor: 'red'
+      accentColor: 'red',
+      assigned:true
     },
     {
       name: 'John Stone',
@@ -100,7 +105,8 @@ export class TruckReservationComponent implements OnInit {
       hasPhone: false,
       hasFavorite: true,
       hasWarning: false,
-      accentColor: 'green'
+      accentColor: 'green',
+      assigned :false
     }
   ];
  

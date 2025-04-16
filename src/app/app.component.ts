@@ -1,18 +1,18 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, Input, input, SimpleChanges } from '@angular/core';
-import { TruckReservationComponent } from './truck-reservation/truck-reservation.component';
 
 import { SelectModule } from 'primeng/select';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
+import { RouterOutlet } from '@angular/router';
 interface City {
   name: string;
   code: string;
 }
 @Component({
   selector: 'app-root',
-  imports: [TruckReservationComponent, SelectModule, CommonModule, FormsModule, DropdownModule, ButtonModule],
+  imports: [ SelectModule, CommonModule, FormsModule, DropdownModule, ButtonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone:true,
