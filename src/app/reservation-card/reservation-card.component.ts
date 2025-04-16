@@ -1,11 +1,12 @@
 // reservation-card.component.ts
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Tooltip } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-reservation-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, Tooltip],
   templateUrl: './reservation-card.component.html',
   styleUrls: ['./reservation-card.component.scss'],
 })

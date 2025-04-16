@@ -1,0 +1,62 @@
+<!-- unit-card.component.html -->
+<div class="self-stretch h-16 relative bg-white rounded-lg outline outline-1 outline-offset-[-1px] outline-gray-200 overflow-hidden">
+    <!-- Top row with status and unit number -->
+    <div class="w-96 left-[16px] top-[10px] absolute inline-flex justify-start items-center gap-2.5">
+      <div class="w-64 flex justify-start items-center gap-3">
+        <!-- Status badge -->
+        <div [attr.data-status]="data.status" 
+             class="h-5 px-2 py-1 rounded-[20px] outline outline-1 outline-offset-[-1px] flex justify-center items-center gap-1"
+             [ngClass]="[getStatusColor().bg, getStatusColor().outline]">
+          <div *ngIf="data.status === 'Available'" class="inline-flex flex-col justify-start items-start gap-4">
+            <div class="w-3.5 h-2.5" [ngClass]="getStatusColor().icon"></div>
+          </div>
+          <ng-container *ngIf="data.status === 'Due-in'">
+            <i class="fas fa-calendar" [ngClass]="getStatusColor().text"></i>
+          </ng-container>
+          <div class="text-center justify-center text-xs font-['Avenir_LT_Std']" [ngClass]="getStatusColor().text">
+            {{ data.status }}
+          </div>
+        </div>
+        <!-- Unit number -->
+        <div class="justify-start text-neutral-950 text-sm font-semibold font-['Avenir_LT_Std'] leading-tight">
+          Unit # {{ data.unitNumber }}
+        </div>
+      </div>
+    </div>
+  
+    <!-- Bottom row with location, line type, and PM date -->
+    <div class="left-[16px] top-[43px] absolute inline-flex justify-start items-center gap-2">
+      <!-- Location (if available) -->
+      <ng-container *ngIf="data.location">
+        <div class="flex justify-start items-center gap-2">
+          <div class="flex justify-start items-center gap-1">
+            <div data-padding="square" data-scale="1x" data-style="regular" class="w-5 h-5 inline-flex flex-col justify-center items-center">
+              <i class="fas fa-map-marker-alt text-blue-900"></i>
+            </div>
+            <div class="flex justify-start items-center gap-1">
+              <div class="justify-start text-blue-900 text-sm font-['Avenir_LT_Std'] leading-tight">{{ data.location }}</div>
+            </div>
+          </div>
+          <div class="w-px h-4 bg-gray-200"></div>
+        </div>
+      </ng-container>
+  
+      <!-- Line Type -->
+      <div class="flex justify-start items-center gap-1">
+        <div class="justify-start text-gray-700 text-sm font-['Avenir_LT_Std'] leading-tight">{{ data.lineType }}</div>
+      </div>
+      <div class="w-px h-4 bg-gray-200"></div>
+  
+      <!-- PM Date -->
+      <div class="flex justify-start items-center gap-1">
+        <div class="justify-start text-gray-700 text-sm font-['Avenir_LT_Std'] leading-tight">PM Date- {{ data.pmDate }}</div>
+      </div>
+    </div>
+  
+    <!-- Add button -->
+    <div class="left-[361px] top-[21px] absolute inline-flex flex-col justify-start items-start gap-2.5">
+      <div data-state="Secondary" class="self-stretch px-3 py-1 bg-white rounded outline outline-1 outline-offset-[-1px] outline-gray-300 hover:outline-gray-400 inline-flex justify-end items-center gap-2.5">
+        <div class="justify-start text-gray-700 hover:text-gray-900 text-sm font-['Avenir_LT_Std'] leading-tight">Add </div>
+      </div>
+    </div>
+  </div>

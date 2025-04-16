@@ -1,0 +1,5 @@
+@import '../../styles/typography-utilities.scss';
+.chiptitle {
+    @include body-3-medium();
+    color:#464747 !important;
+}

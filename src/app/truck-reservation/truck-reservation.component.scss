@@ -1,3 +1,5 @@
+
+@import '../../styles/typography-utilities.scss';
 /* Main container styles */
 .truck-reservation-container {
   min-height: 100vh;
@@ -200,4 +202,27 @@ body .p-button.p-button-text.p-ghost {
       color: #002084 !important;
     }
   }
+}
+// :host ::ng-deep  .p-tabs .p-tablist .p-tablist-content .p-tablist-tab-list .p-tab-active{
+ 
+//    border-bottom: 5px solid #FECB00 !important;
+
+//   /* Custom color for underline */
+// }
+
+// .yellow-active-tabs .p-tabview-nav .p-tabview-nav-link.p-tabview-nav-link-active {
+//   border-bottom-color: #FACC15 !important;
+//   border-bottom-width: 2px !important;
+// }
+
+
+
+
+
+
+
+:host ::ng-deep .p-tabview .p-tabview-nav li button {
+  font-family: 'Avenir LT Std', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
 }

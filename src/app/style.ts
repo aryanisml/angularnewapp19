@@ -325,6 +325,31 @@ const TruckRentalPreset = definePreset(Aura, {
           }
          }
       },
+      tabs: {
+        tab: {
+          active: {
+            color: '#171718 !important',
+            border: {
+              color: '#FECB00 !important'  // Use your Penske Yellow from the palette
+            }
+          },
+          color :"#717274 !important"
+        },
+        active: {
+          bar: {
+            height:'5px !important',
+            background: '#FECB00 !important'  // This controls the active indicator
+
+          }
+        }
+      }
+//tabs.tab.active.background
+    // chip : {
+    //   root :{
+    //      background : 'gray !important',
+    //      color:"red !important",
+    //   }
+    // }
     
     // card: {
     //   root: {

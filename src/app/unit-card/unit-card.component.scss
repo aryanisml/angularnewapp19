@@ -1,0 +1,30 @@
+/* unit-card.component.scss */
+:host {
+    display: block;
+  }
+  
+  /* Font fallbacks */
+  .font-\[\'Avenir_LT_Std\'\] {
+    font-family: 'Avenir LT Std', 'Avenir', 'Segoe UI', system-ui, sans-serif;
+  }
+  
+  /* Add button hover effect */
+  [data-state="Secondary"] {
+    transition: all 0.2s ease-in-out;
+    
+    &:hover {
+      background-color: #f9fafb;
+      cursor: pointer;
+    }
+  }
+  
+  /* Status icon styling */
+  .fa-calendar, .fa-check {
+    font-size: 12px;
+  }
+  
+  /* Making sure the card maintains its height */
+  .self-stretch {
+    width: 100%;
+    max-width: 425px;
+  }
