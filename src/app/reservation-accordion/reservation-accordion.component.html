@@ -1,67 +1,69 @@
 <div class="max-w-[616px] bg-white">
   @for (location of locations; track location.name) {
-    <!-- Location header -->
-    <div
-      class="p-4 bg-white flex items-center space-x-2 border-b border-gray-200 cursor-pointer"
-      (click)="toggleLocation(location)">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="feather">
-        @if (location.isOpen) {
-          <polyline points="18 15 12 9 6 15"></polyline>
-        } @else {
-          <polyline points="6 9 12 15 18 9"></polyline>
-        }
-      </svg>
-      <span class="font-medium">{{ location.name }} ({{ location.id }}) | {{ location.reservationCount }} Reservations</span>
-    </div>
-    @if (location.isOpen) {
-      @for (slot of location.timeSlots; track slot.time) {
-        <div class="border-b border-gray-200">
-          <!-- Time slot row -->
-          <div class="grid grid-cols-[130px_486px]">
-            <!-- Time column -->
-            <div class="border-r border-gray-200">
-              <div class="bg-[#F2F9FF] px-6 py-4">
-                <div class="text-gray-800">{{ slot.time }}</div>
-              </div>
-              <div class="bg-white flex-grow"></div>
-            </div>
-            <!-- Reservations column -->
-            <div class="bg-slate-50">
-              @for (reservation of slot.reservations; track reservation.name) {
-                <!-- Reservation card -->
-                <div class="pl-2 pb-2 hover:bg-gray-50">
-                  <app-reservation-card
-                    [name]="reservation.name"
-                    [unitNumber]="reservation?.unitNumber || ''"
-                    [towNumber]="reservation?.towNumber || ''"
-                    [vehicleType]="reservation.vehicleType"
-                    [tripType]="reservation.tripType"
-                    [customerType]="reservation.customerType"
-                    [assigned]="reservation.assigned"
-                    [hasPhone]="reservation.hasPhone"
-                    [hasFavorite]="reservation.hasFavorite"
-                    [hasWarning]="reservation.hasWarning"
-                    [accentColor]="getAccentColorSafe(reservation.accentColor)">
-                  </app-reservation-card>
-                </div>
-              }
-              @if (slot.reservations.length === 0) {
-                <div class="p-4 text-gray-500 italic">No reservations</div>
-              }
-            </div>
-          </div>
-        </div>
-      }
-    }
+ <!-- Location header -->
+ <div
+ class="p-4 bg-white flex items-center space-x-2 border-b border-gray-200 cursor-pointer"
+ (click)="toggleLocation(location)">
+ <svg
+ xmlns="http://www.w3.org/2000/svg"
+ width="20"
+ height="20"
+ viewBox="0 0 24 24"
+ fill="none"
+ stroke="currentColor"
+ stroke-width="2"
+ stroke-linecap="round"
+ stroke-linejoin="round"
+ class="feather">
+ @if (location.isOpen) {
+ <polyline points="18 15 12 9 6 15"></polyline>
+  } @else {
+ <polyline points="6 9 12 15 18 9"></polyline>
   }
-</div>
+ </svg>
+ <span class="font-medium">{{ location.name }} ({{ location.id }}) | {{ location.reservationCount }} Reservations</span>
+ </div>
+ @if (location.isOpen) {
+ @for (slot of location.timeSlots; track slot.time) {
+ <div class="border-b border-gray-200">
+ <!-- Time slot row -->
+ <div class="grid grid-cols-[130px_486px]">
+ <!-- Time column -->
+ <div class="border-r border-gray-200 relative">
+ <div class="bg-[#F2F9FF] px-6 py-4">
+ <div class="text-gray-800">{{ slot.time }}</div>
+ </div>
+ <!-- Added central line -->
+ <div class="absolute w-full h-px bg-gray-200 top-1/2 transform -translate-y-1/2"></div>
+ <div class="bg-white flex-grow"></div>
+ </div>
+ <!-- Reservations column -->
+ <div class="bg-slate-50">
+ @for (reservation of slot.reservations; track reservation.name) {
+ <!-- Reservation card -->
+ <div class="pl-2 pb-2 hover:bg-gray-50">
+ <app-reservation-card
+ [name]="reservation.name"
+ [unitNumber]="reservation?.unitNumber || ''"
+ [towNumber]="reservation?.towNumber || ''"
+ [vehicleType]="reservation.vehicleType"
+ [tripType]="reservation.tripType"
+ [customerType]="reservation.customerType"
+ [assigned]="reservation.assigned"
+ [hasPhone]="reservation.hasPhone"
+ [hasFavorite]="reservation.hasFavorite"
+ [hasWarning]="reservation.hasWarning"
+ [accentColor]="getAccentColorSafe(reservation.accentColor)">
+ </app-reservation-card>
+ </div>
+  }
+ @if (slot.reservations.length === 0) {
+ <div class="p-4 text-gray-500 italic">No reservations</div>
+  }
+ </div>
+ </div>
+ </div>
+  }
+  }
+  }
+ </div>

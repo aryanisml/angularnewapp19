@@ -10,6 +10,7 @@ export interface Reservation {
   hasWarning: boolean;
   accentColor: string;
   assigned: boolean;
+  isPastDue: boolean;
 }
 
 // time-slot.model.ts
@@ -59,7 +60,8 @@ export class ReservationAccordionComponent {
               hasFavorite: false,
               hasWarning: false,
               accentColor: 'gray',
-              assigned: false
+              assigned: false,
+              isPastDue: true
             }
           ]
         },
@@ -75,7 +77,8 @@ export class ReservationAccordionComponent {
               hasFavorite: false,
               hasWarning: false,
               accentColor: 'gray',
-              assigned: false
+              assigned: false,
+              isPastDue: false
             },
             {
               name: 'Hubert Blaine Wolfe',
@@ -88,7 +91,8 @@ export class ReservationAccordionComponent {
               hasFavorite: true,
               hasWarning: false,
               accentColor: 'green',
-              assigned: true
+              assigned: true,
+              isPastDue: false
             },
             {
               name: 'Alexander Dough',
@@ -100,7 +104,8 @@ export class ReservationAccordionComponent {
               hasWarning: true,
               hasPhone: false,
               accentColor: 'red',
-              assigned: true
+              assigned: true,
+              isPastDue: false
             }
           ]
         },
@@ -118,7 +123,8 @@ export class ReservationAccordionComponent {
               hasFavorite: true,
               hasWarning: false,
               accentColor: 'green',
-              assigned: true
+              assigned: true,
+              isPastDue: false
             }
           ]
         },
@@ -134,7 +140,8 @@ export class ReservationAccordionComponent {
               hasFavorite: false,
               hasWarning: false,
               accentColor: 'red',
-              assigned: true
+              assigned: true,
+              isPastDue: false
             }
           ]
         }
@@ -172,6 +179,15 @@ getAccentColorSafe(color: string): 'green' | 'red' | 'blue' | 'gray' {
   // Return a default color if the provided color is not valid
   return 'green';
 }
+
+showAlert(event: Event, message: string): void {
+  // Stop event propagation to prevent other click handlers from firing
+  event.stopPropagation();
+  
+  // Show an alert with the message
+  alert('Hello World');
+}
+
 
 
 }

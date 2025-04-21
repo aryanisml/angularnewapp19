@@ -20,6 +20,7 @@ import { EnhancedChipListComponent } from '../enhanced-chip-list/enhanced-chip-l
 import { TabsModule } from 'primeng/tabs';
 import { TabViewModule } from 'primeng/tabview';
 import { UnitCardComponent } from '../unit-card/unit-card.component';
+import { AutocompleteComponent } from '../autocomplete/autocomplete.component';
 interface StatusOption {
   label: string;
   value: string;
@@ -78,7 +79,9 @@ interface Reservation {
     EnhancedChipListComponent,
     TabsModule,
     TabViewModule,
-    UnitCardComponent
+    UnitCardComponent,
+    AutocompleteComponent,
+    ReservationAccordionComponent
   ]
 })
 export class TruckReservationComponent implements OnInit {
@@ -416,4 +419,36 @@ export class TruckReservationComponent implements OnInit {
     pmDate: '02/27/25',
     location: '6850-10'
   };
+
+  selectedItem: any | null = null;
+  
+  // Sample data with categories
+  sampleItems: any[] = [
+    // Fruits category
+    { id: 1, name: 'Apple', category: 'Fruits' },
+    { id: 2, name: 'Banana', category: 'Fruits' },
+    { id: 3, name: 'Cherry', category: 'Fruits' },
+    { id: 4, name: 'Dragonfruit', category: 'Fruits' },
+    
+    // Vegetables category
+    { id: 5, name: 'Broccoli', category: 'Vegetables' },
+    { id: 6, name: 'Carrot', category: 'Vegetables' },
+    { id: 7, name: 'Cucumber', category: 'Vegetables' },
+    
+    // Electronics category
+    { id: 8, name: 'Smartphone', category: 'Electronics' },
+    { id: 9, name: 'Laptop', category: 'Electronics' },
+    { id: 10, name: 'Headphones', category: 'Electronics' },
+    { id: 11, name: 'Monitor', category: 'Electronics' },
+    
+    // Books category
+    { id: 12, name: 'Fiction', category: 'Books' },
+    { id: 13, name: 'Non-fiction', category: 'Books' },
+    { id: 14, name: 'Science Fiction', category: 'Books' }
+  ];
+  
+  onItemSelected(item: any): void {
+    this.selectedItem = item;
+    console.log('Selected item:', item);
+  }
 }

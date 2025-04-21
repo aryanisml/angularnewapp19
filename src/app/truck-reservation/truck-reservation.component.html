@@ -1,5 +1,10 @@
 
-
+<app-autocomplete 
+[items]="sampleItems" 
+(selected)="onItemSelected($event)"
+placeholder="Search for items..."
+></app-autocomplete>
+  
   <h1>Ship Design System</h1>
    <h2>Buttons</h2>
   <div class="flex flex-row gap-4 w-full mt-2">
@@ -168,11 +173,11 @@
         </div>
     
        </div>
-      
-      <div class="m-16">
 
+      <div class="m-64">
+   <!-- <app-reservation-accordion /> -->
       </div>
-      <!-- <app-reservation-accordion /> -->
+   
     </div>
    </div>
   
