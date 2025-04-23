@@ -8,6 +8,7 @@ import { TranslationService } from './translation.service';
 import Aura from '@primeng/themes/aura';
 import { provideRouter } from '@angular/router';
 import TruckRentalPreset from './style';
+// import '@primeng/themes/aura';
 import { provideHttpClient } from '@angular/common/http';
 
 

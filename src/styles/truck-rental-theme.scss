@@ -1,0 +1,505 @@
+// primeng-theme.scss - Comprehensive styling for PrimeNG 19 components
+
+// ===== Colors =====
+$primary: #002496; // Reflex Blue
+$primary-hover: #0073CF; // Bright Blue
+$secondary: #FECB00; // Penske Yellow
+$text-color: #171718; // Grey-190
+$text-muted: #717274; // Grey-150
+$border-color: #D4D7D9; // Grey-80
+$white: #FFFFFF;
+$dropdown-hover: #EAF6FF;
+
+:root {
+  // ===== Global PrimeNG Variables =====
+  --text-color: #{$text-color};
+  --text-secondary-color: #{$text-muted};
+  --primary-color: #{$primary};
+  --font-family: "Avenir LT Std", sans-serif;
+  --surface-border: #{$border-color};
+  --surface-ground: #{$white};
+  --surface-section: #{$white};
+  --surface-card: #{$white};
+  --surface-overlay: #{$white};
+  --surface-hover: #{$dropdown-hover};
+  --focus-ring: none;
+  --border-radius: 4px;
+}
+
+// ===== Global Component Overrides =====
+// This section provides direct component styling with high specificity
+
+// Remove all focus outlines
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+// Button styling - covers all button types
+.p-button,
+button.p-button,
+.p-buttonset > .p-button {
+  background: #{$primary} !important;
+  color: #{$white} !important;
+  border-color: #{$primary} !important;
+  border-radius: 4px !important;
+  padding: 0.5rem 0.75rem !important;
+  font-weight: 700 !important;
+  font-family: "Avenir LT Std", sans-serif !important;
+  transition: background-color 0.2s !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  font-size: 14px !important;
+  
+  &:hover, &:active {
+    background: #{$primary-hover} !important;
+    border-color: #{$primary-hover} !important;
+    color: #{$white} !important;
+  }
+  
+  &:focus {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  
+  .p-button-label {
+    font-weight: 700 !important;
+  }
+}
+
+// Secondary button variant
+.p-button.p-button-secondary,
+button.p-button.p-button-secondary,
+.p-buttonset > .p-button.p-button-secondary {
+  background: #{$white} !important;
+  color: #{$text-muted} !important;
+  border-color: #{$border-color} !important;
+  
+  &:hover, &:active {
+    background: #f9fafb !important;
+    border-color: #{$border-color} !important;
+  }
+}
+
+// Outlined button variant
+.p-button.p-button-outlined,
+button.p-button.p-button-outlined,
+.p-buttonset > .p-button.p-button-outlined {
+  background: transparent !important;
+  color: #{$primary} !important;
+  border-color: #{$primary} !important;
+  
+  &:hover, &:active {
+    background: rgba(0, 36, 150, 0.04) !important;
+    border-color: #{$primary-hover} !important;
+  }
+}
+
+// Text button variant
+.p-button.p-button-text,
+button.p-button.p-button-text,
+.p-buttonset > .p-button.p-button-text {
+  background: transparent !important;
+  color: #{$primary} !important;
+  border-color: transparent !important;
+  
+  &:hover, &:active {
+    background: rgba(0, 36, 150, 0.04) !important;
+    border-color: transparent !important;
+  }
+}
+
+// Checkbox styling
+.p-checkbox,
+div.p-checkbox {
+  width: 1.3rem !important;
+  height: 1.3rem !important;
+  
+  .p-checkbox-box {
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 4px !important;
+    border: 1px solid #{$border-color} !important;
+    background: #{$white} !important;
+    
+    &.p-highlight {
+      border-color: #{$primary} !important;
+      background: #{$primary} !important;
+      
+      &:hover {
+        background: #{$primary-hover} !important;
+        border-color: #{$primary-hover} !important;
+      }
+      
+      .p-checkbox-icon {
+        color: #{$white} !important;
+      }
+    }
+    
+    &:hover {
+      border-color: #{$primary} !important;
+    }
+    
+    &:focus {
+      box-shadow: none !important;
+      border-color: #{$primary} !important;
+    }
+  }
+}
+
+// Dropdown styling
+.p-dropdown,
+div.p-dropdown {
+  background: #{$white} !important;
+  border: 1px solid #{$border-color} !important;
+  border-radius: 4px !important;
+  
+  &:hover {
+    border-color: #{$primary} !important;
+  }
+  
+  &:focus {
+    border-color: #{$primary} !important;
+    box-shadow: none !important;
+  }
+  
+  .p-dropdown-label {
+    color: #{$text-color} !important;
+    padding: 0.5rem 0.75rem !important;
+  }
+  
+  .p-dropdown-trigger {
+    color: #{$text-muted} !important;
+  }
+}
+
+// Dropdown panel styling
+.p-dropdown-panel,
+div.p-dropdown-panel {
+  border: 1px solid #{$border-color} !important;
+  border-radius: 4px !important;
+  
+  .p-dropdown-items {
+    padding: 0.5rem 0 !important;
+    
+    .p-dropdown-item {
+      color: #{$text-color} !important;
+      padding: 0.5rem 1rem !important;
+      transition: background-color 0.2s !important;
+      
+      &.p-highlight, &:hover {
+        background: #{$dropdown-hover} !important;
+        color: #{$text-color} !important;
+      }
+      
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+  }
+}
+
+// Tab styling
+.p-tabview,
+div.p-tabview {
+  .p-tabview-nav {
+    border-bottom: 1px solid #{$border-color} !important;
+    background: transparent !important;
+    
+    li {
+      margin-right: 1rem !important;
+      
+      .p-tabview-nav-link {
+        color: #{$text-muted} !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0.75rem 0 !important;
+        font-weight: 500 !important;
+        transition: color 0.2s !important;
+        
+        &:hover {
+          color: #{$text-color} !important;
+          border-color: transparent !important;
+        }
+        
+        &:focus {
+          box-shadow: none !important;
+        }
+      }
+      
+      &.p-highlight {
+        .p-tabview-nav-link {
+          color: #{$text-color} !important;
+          border-color: #{$secondary} !important;
+          border-width: 0 0 5px 0 !important;
+          border-style: solid !important;
+        }
+      }
+    }
+  }
+  
+  .p-tabview-panels {
+    padding: 1.25rem 0 !important;
+    background: transparent !important;
+  }
+}
+
+// Input styling
+.p-inputtext,
+input.p-inputtext {
+  background: #{$white} !important;
+  border: 1px solid #{$border-color} !important;
+  border-radius: 4px !important;
+  padding: 0.5rem 0.75rem !important;
+  color: #{$text-color} !important;
+  font-size: 14px !important;
+  
+  &:hover:not(.p-disabled) {
+    border-color: #{$primary} !important;
+  }
+  
+  &:focus {
+    box-shadow: none !important;
+    border-color: #{$primary} !important;
+  }
+  
+  &.p-invalid {
+    border-color: #D0021B !important;
+  }
+}
+
+// Calendar styling
+.p-calendar,
+div.p-calendar {
+  .p-inputtext {
+    background: #{$white} !important;
+    border: 1px solid #{$border-color} !important;
+    border-radius: 4px !important;
+    padding: 0.5rem 0.75rem !important;
+    
+    &:hover:not(.p-disabled) {
+      border-color: #{$primary} !important;
+    }
+    
+    &:focus {
+      box-shadow: none !important;
+      border-color: #{$primary} !important;
+    }
+  }
+  
+  .p-datepicker-trigger {
+    background: transparent !important;
+    color: #{$text-muted} !important;
+    border-color: transparent !important;
+    
+    &:hover {
+      color: #{$primary} !important;
+    }
+  }
+}
+
+// Dialog styling
+.p-dialog,
+div.p-dialog {
+  border-radius: 4px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15) !important;
+  
+  .p-dialog-header {
+    padding: 1rem 1.5rem !important;
+    background: #{$white} !important;
+    color: #{$text-color} !important;
+    border-bottom: 1px solid #{$border-color} !important;
+    
+    .p-dialog-title {
+      font-weight: 700 !important;
+      font-size: 18px !important;
+    }
+    
+    .p-dialog-header-icon {
+      color: #{$text-muted} !important;
+      
+      &:hover {
+        color: #{$primary} !important;
+        background: transparent !important;
+      }
+      
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+  }
+  
+  .p-dialog-content {
+    padding: 1.5rem !important;
+    background: #{$white} !important;
+    color: #{$text-color} !important;
+  }
+  
+  .p-dialog-footer {
+    padding: 1rem 1.5rem !important;
+    background: #{$white} !important;
+    border-top: 1px solid #{$border-color} !important;
+  }
+}
+
+// Data Table styling
+.p-datatable,
+div.p-datatable {
+  .p-datatable-header {
+    background: #{$white} !important;
+    border: 1px solid #{$border-color} !important;
+    border-width: 1px 1px 0 1px !important;
+    padding: 1rem !important;
+    font-weight: 700 !important;
+  }
+  
+  .p-datatable-thead > tr > th {
+    background: #{$white} !important;
+    border: 1px solid #{$border-color} !important;
+    border-width: 0 0 1px 0 !important;
+    padding: 0.75rem 1rem !important;
+    color: #{$text-color} !important;
+    font-weight: 700 !important;
+  }
+  
+  .p-datatable-tbody > tr {
+    background: #{$white} !important;
+    
+    &:hover {
+      background: #{$dropdown-hover} !important;
+    }
+    
+    > td {
+      border: 1px solid #{$border-color} !important;
+      border-width: 0 0 1px 0 !important;
+      padding: 0.75rem 1rem !important;
+      color: #{$text-color} !important;
+    }
+  }
+  
+  .p-paginator {
+    background: #{$white} !important;
+    border: 1px solid #{$border-color} !important;
+    border-width: 0 1px 1px 1px !important;
+    padding: 0.5rem !important;
+    
+    .p-paginator-pages .p-paginator-page.p-highlight {
+      background: #{$primary} !important;
+      color: #{$white} !important;
+    }
+  }
+}
+
+// Radio Button styling
+.p-radiobutton,
+div.p-radiobutton {
+  width: 1.3rem !important;
+  height: 1.3rem !important;
+  
+  .p-radiobutton-box {
+    border: 1px solid #{$border-color} !important;
+    background: #{$white} !important;
+    
+    &.p-highlight {
+      border-color: #{$primary} !important;
+      background: #{$white} !important;
+      
+      &:hover {
+        border-color: #{$primary-hover} !important;
+      }
+      
+      .p-radiobutton-icon {
+        background: #{$primary} !important;
+      }
+    }
+    
+    &:hover {
+      border-color: #{$primary} !important;
+    }
+    
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+}
+
+// Toast styling
+.p-toast,
+div.p-toast {
+  .p-toast-message {
+    border-radius: 4px !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15) !important;
+    
+    &.p-toast-message-info {
+      background: #{$dropdown-hover} !important;
+      border-left: 6px solid #{$primary} !important;
+      color: #{$text-color} !important;
+      
+      .p-toast-message-icon, .p-toast-icon-close {
+        color: #{$primary} !important;
+      }
+    }
+  }
+}
+
+// Menu styling
+.p-menu,
+div.p-menu {
+  background: #{$white} !important;
+  border: 1px solid #{$border-color} !important;
+  border-radius: 4px !important;
+  
+  .p-menuitem-link {
+    padding: 0.75rem 1rem !important;
+    color: #{$text-color} !important;
+    
+    &:hover {
+      background: #{$dropdown-hover} !important;
+    }
+    
+    &:focus {
+      box-shadow: none !important;
+    }
+    
+    .p-menuitem-icon {
+      color: #{$text-muted} !important;
+      margin-right: 0.5rem !important;
+    }
+  }
+}
+
+// Panel styling
+.p-panel,
+div.p-panel {
+  border: 1px solid #{$border-color} !important;
+  border-radius: 4px !important;
+  
+  .p-panel-header {
+    background: #{$white} !important;
+    color: #{$text-color} !important;
+    border-bottom: 1px solid #{$border-color} !important;
+    padding: 1rem !important;
+    
+    .p-panel-title {
+      font-weight: 700 !important;
+    }
+    
+    .p-panel-header-icon {
+      color: #{$text-muted} !important;
+      
+      &:hover {
+        color: #{$primary} !important;
+        background: transparent !important;
+      }
+      
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+  }
+  
+  .p-panel-content {
+    background: #{$white} !important;
+    color: #{$text-color} !important;
+    padding: 1.25rem !important;
+  }
+}

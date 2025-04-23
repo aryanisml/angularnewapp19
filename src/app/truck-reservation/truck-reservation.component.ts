@@ -21,6 +21,7 @@ import { TabsModule } from 'primeng/tabs';
 import { TabViewModule } from 'primeng/tabview';
 import { UnitCardComponent } from '../unit-card/unit-card.component';
 import { AutocompleteComponent } from '../autocomplete/autocomplete.component';
+import { DatePicker } from 'primeng/datepicker';
 interface StatusOption {
   label: string;
   value: string;
@@ -81,10 +82,12 @@ interface Reservation {
     TabViewModule,
     UnitCardComponent,
     AutocompleteComponent,
-    ReservationAccordionComponent
+    ReservationAccordionComponent,
+    DatePicker
   ]
 })
 export class TruckReservationComponent implements OnInit {
+  rangeDates: Date[] | undefined;
   blueChecked: boolean = true;
   grayChecked: boolean = true;
   redChecked: boolean = true;

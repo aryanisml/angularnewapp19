@@ -1,5 +1,5 @@
 // reservation-accordion.component.ts
-import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ReservationCardComponent } from '../reservation-card/reservation-card.component';
 import { interval, Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
@@ -67,7 +67,7 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
     },
     {
       name: 'John Stone',
-      time: '09:00 AM',
+      time: '10:40 AM',
       unitNumber: '#544387',
       towNumber: '#987654',
       vehicleType: 'Cube Van Shelf',
@@ -112,7 +112,7 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
     },
     {
       name: 'Edward Smith',
-      time: '10:45 AM',
+      time: '02:45 PM',
       towNumber: '#987654',
       vehicleType: 'Cube Van Shelf',
       tripType: 'Round Trip',
@@ -127,7 +127,7 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
     },
     {
       name: 'Edward Smith',
-      time: '01:00 PM',
+      time: '02:00 PM',
       vehicleType: 'Cube Van Shelf',
       tripType: 'Round Trip',
       customerType: 'Consumer',
@@ -142,7 +142,7 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
     },
     {
       name: 'REC Corp',
-      time: '01:45 PM',
+      time: '01:15 PM',
       vehicleType: 'Cube Van Shelf',
       tripType: 'Round Trip',
       customerType: 'Consumer',
@@ -157,7 +157,7 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
     },
     {
       name: 'REC Corp3',
-      time: '01:50 PM',
+      time: '01:45 PM',
       vehicleType: 'Cube Van Shelf',
       tripType: 'Round Trip',
       customerType: 'Consumer',
@@ -190,7 +190,7 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
   // Locations with grouped time slots
   locations: Location[] = [];
   
-  constructor(private renderer: Renderer2) {}
+  constructor() {}
 
   ngOnInit(): void {
     // Group reservations into hourly time slots for each location
@@ -263,7 +263,6 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
 
   // Generate locations with reservations grouped by hour
   private generateLocations(): Location[] {
-    // Example - in a real app, this would use your data source
     const locations: Location[] = [
       {
         name: 'Penske Reading',
@@ -406,4 +405,89 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
       return null;
     }
   }
+  
+has30MinutesPassedFromFirstReservation(reservations: any[]): boolean {
+  if (!reservations || reservations.length < 2) return false;
+
+  // Get all reservation times in minutes from the start of the day
+  const reservationMinutes: number[] = [];
+  for (const reservation of reservations) {
+    const timeObj = this.parseTimeString(reservation.exactTime || reservation.time);
+    if (!timeObj) continue;
+    
+    const totalMinutes = timeObj.hours * 60 + timeObj.minutes;
+    reservationMinutes.push(totalMinutes);
+  }
+  
+  // Sort times in ascending order
+  reservationMinutes.sort((a, b) => a - b);
+  
+  // Check for gaps between consecutive reservations
+  for (let i = 0; i < reservationMinutes.length - 1; i++) {
+    const gap = reservationMinutes[i + 1] - reservationMinutes[i];
+    
+    // If there's a gap of at least 20 minutes, show divider
+    if (gap >= 20) {
+      return true;
+    }
+  }
+  
+  // Also check if any reservation crosses the half-hour mark
+  const hourSlot = this.parseTimeString(reservations[0].time);
+  if (!hourSlot) return false;
+  
+  const halfHourMark = hourSlot.hours * 60 + 30;
+  let beforeHalfHour = false;
+  let afterHalfHour = false;
+  
+  for (const minutes of reservationMinutes) {
+    if (minutes < halfHourMark) beforeHalfHour = true;
+    if (minutes >= halfHourMark) afterHalfHour = true;
+  }
+  
+  return beforeHalfHour && afterHalfHour;
+}
+
+// Calculate the position of the divider based on reservations in a slot
+calculateDividerPosition(reservations: any[]): string {
+  if (!reservations || reservations.length < 2) return '50%';
+  
+  // Get all reservation times with their indices
+  const reservationTimes: {minutes: number, index: number}[] = [];
+  
+  for (let i = 0; i < reservations.length; i++) {
+    const timeObj = this.parseTimeString(reservations[i].exactTime || reservations[i].time);
+    if (!timeObj) continue;
+    
+    const totalMinutes = timeObj.hours * 60 + timeObj.minutes;
+    reservationTimes.push({minutes: totalMinutes, index: i});
+  }
+  
+  // Sort by time
+  reservationTimes.sort((a, b) => a.minutes - b.minutes);
+  
+  // Find the largest gap
+  let maxGap = 0;
+  let gapAfterIndex = 0;
+  
+  for (let i = 0; i < reservationTimes.length - 1; i++) {
+    const gap = reservationTimes[i + 1].minutes - reservationTimes[i].minutes;
+    if (gap > maxGap) {
+      maxGap = gap;
+      gapAfterIndex = i;
+    }
+  }
+  
+  // Calculate position based on reservations
+  // If there's a significant gap, place divider proportionally between items
+  if (maxGap >= 20) {
+    // Place divider after a certain percentage of reservations
+    const percentageComplete = (gapAfterIndex + 1) / reservations.length;
+    const position = Math.min(85, Math.max(15, percentageComplete * 100));
+    return `${position}%`;
+  }
+  
+  // Default to middle if no significant gap
+  return '50%';
+}
 }

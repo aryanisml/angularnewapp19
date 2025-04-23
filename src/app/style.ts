@@ -342,7 +342,36 @@ const TruckRentalPreset = definePreset(Aura, {
 
           }
         }
+      },
+      datepicker :{
+        panel : {
+          background :"white !important",
+          color : "#0073CF !important",
+          shadow :"red !important",
+          border  :{
+            radius:"4px !important"
+          }
+        
+        },
+        date: {
+          fontSize :'14px !important',
+          padding:'0.20rem !important',
+          selected :{
+            background:"#0073CF !important"
+          }
+        },
+       week :{
+          day :{
+            font:{
+              weight:'200 !important'
+            },
+            padding:"0.20rem !important"
+          }
+      },
+     
       }
+
+      //datepicker.week.day.font.weight
 //tabs.tab.active.background
     // chip : {
     //   root :{

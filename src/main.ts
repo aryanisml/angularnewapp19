@@ -33,6 +33,8 @@ import { appConfig } from './app/app.config';
 import { createCustomElement } from '@angular/elements';
 import { AppComponent } from './app/app.component';
 import { Router } from '@angular/router';
+// main.ts or app.module.ts
+
 
 const isStandalone = document.querySelector('planner-reservation') === null;
 

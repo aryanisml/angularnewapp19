@@ -36,30 +36,34 @@
         <div class="border-b border-gray-200 time-slot-row relative">
           <!-- Time indicator line - shown directly in the matching slot -->
           @if (shouldShowTimeIndicatorForSlot(slot)) {
-            <div class="absolute left-[130px] right-0 h-0.5 bg-blue-900 z-30" [style.top.%]="currentTimePercentage">
-              
-              <!-- Blue circle -->
-              <div class="absolute -left-[6px] top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-blue-900 z-40"></div>
-          
+            <div class="absolute   left-[130px] right-0 h-0.5  z-10  bg-[#002084] " [style.top.%]="currentTimePercentage">
+              <div
+                  class="absolute w-0 h-0 border-l-[24px] border-l-[#002084] border-t-[11px] border-t-transparent border-b-[11px] border-b-transparent  top-[-10px]">
             </div>
+          </div>
           }
-          
-          
           <!-- Time slot row -->
-          <div class="grid grid-cols-[130px_486px]">
+          <div class="grid grid-cols-[130px_486px] ">
             <!-- Time column -->
             <div class="border-r border-gray-200 relative min-h-[80px]">
               <div class="bg-[#F2F9FF] px-6 py-4">
                 <div class="text-gray-800">{{ slot.time }}</div>
               </div>
               <!-- Single central line -->
-              <div class="absolute w-full h-px bg-gray-200 top-1/2 transform -translate-y-1/2"></div>
+              <!-- <div class="absolute w-full h-px bg-gray-200 top-1/2 transform -translate-y-1/2"></div> -->
+           <!-- Dotted line divider that spans both columns -->
+              @if (has30MinutesPassedFromFirstReservation(slot.reservations)) {
+                <div class="absolute left-0 right-0 border-t border-dotted border-gray-300 z-10" 
+                    [style.top]="calculateDividerPosition(slot.reservations)">
+                </div>
+              }
+              
             </div>
             
             <!-- Reservations column -->
             <div class="bg-slate-50 relative min-h-[80px]">
               <!-- Reservations in chronological order -->
-              <div class="py-2">
+              <div class="py-2 px-2   relative z-10">
                 @for (reservation of slot.reservations; track reservation.name) {
                   <div class="pl-2 pr-2 mb-2 hover:bg-gray-50">
                     <app-reservation-card

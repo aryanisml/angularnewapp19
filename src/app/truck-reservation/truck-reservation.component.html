@@ -108,6 +108,12 @@ placeholder="Search for items..."
     </p-tabPanel>
   </p-tabView>
 </div>
+<div>
+
+
+  <p-datepicker [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" [showIcon]="true" />
+
+</div>
   
   <div class="flex flex-col gap-4 w-full mt-2">
 
@@ -173,6 +179,7 @@ placeholder="Search for items..."
         </div>
     
        </div>
+       
 
       <div class="m-64">
     <app-reservation-accordion /> 
@@ -181,4 +188,3 @@ placeholder="Search for items..."
     </div>
    </div>
   
-
