@@ -7,10 +7,11 @@ import { routes } from './app.routes';
 import { TranslationService } from './translation.service';
 import Aura from '@primeng/themes/aura';
 import { provideRouter } from '@angular/router';
-import TruckRentalPreset from './style';
+// import TruckRentalPreset from './style';
 // import '@primeng/themes/aura';
 import { provideHttpClient } from '@angular/common/http';
-
+import ExtendedTruckRentalPreset from './style';
+// import { TruckRentalPreset } from '@penske-rentalnet/complex-ui';
 
 
 export function initializeApp(translationService: TranslationService) {
@@ -28,7 +29,7 @@ export const appConfig: ApplicationConfig = {
     providePrimeNG({
       ripple: true,
       theme: {
-        preset: TruckRentalPreset
+        preset: ExtendedTruckRentalPreset
       }
     }),
     provideHttpClient(),

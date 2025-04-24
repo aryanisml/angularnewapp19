@@ -76,14 +76,15 @@ interface Reservation {
     // TranslatePipe
     ReservationCardComponent,
     // ReservationAccordionComponent,
-    Chip,
+    // Chip,
     EnhancedChipListComponent,
     TabsModule,
     TabViewModule,
     UnitCardComponent,
     AutocompleteComponent,
     ReservationAccordionComponent,
-    DatePicker
+    DatePicker,
+    TableModule
   ]
 })
 export class TruckReservationComponent implements OnInit {
@@ -454,4 +455,113 @@ export class TruckReservationComponent implements OnInit {
     this.selectedItem = item;
     console.log('Selected item:', item);
   }
+  products: any[] = [
+    {
+      id: '1000',
+      code: 'f230fh0g3',
+      name: 'Bamboo Watch',
+      description: 'Product Description',
+      price: 65,
+      quantity: 24,
+      inventoryStatus: 'INSTOCK',
+      category: 'Accessories'
+    },
+    {
+      id: '1001',
+      code: 'nvklal433',
+      name: 'Black Watch',
+      description: 'Product Description',
+      price: 72,
+      quantity: 61,
+      inventoryStatus: 'INSTOCK',
+      category: 'Accessories'
+    },
+    {
+      id: '1002',
+      code: 'zz21cz3c1',
+      name: 'Blue Band',
+      description: 'Product Description',
+      price: 79,
+      quantity: 2,
+      inventoryStatus: 'LOWSTOCK',
+      category: 'Fitness'
+    },
+    {
+      id: '1003',
+      code: '244wgerg2',
+      name: 'Blue T-Shirt',
+      description: 'Product Description',
+      price: 29,
+      quantity: 25,
+      inventoryStatus: 'INSTOCK',
+      category: 'Clothing'
+    },
+    {
+      id: '1004',
+      code: 'h456wer53',
+      name: 'Bracelet',
+      description: 'Product Description',
+      price: 15,
+      quantity: 73,
+      inventoryStatus: 'INSTOCK',
+      category: 'Accessories'
+    },
+    {
+      id: '1005',
+      code: 'av2231fwg',
+      name: 'Brown Purse',
+      description: 'Product Description',
+      price: 120,
+      quantity: 0,
+      inventoryStatus: 'OUTOFSTOCK',
+      category: 'Accessories'
+    },
+    {
+      id: '1006',
+      code: 'bib36pfvm',
+      name: 'Chakra Bracelet',
+      description: 'Product Description',
+      price: 32,
+      quantity: 5,
+      inventoryStatus: 'LOWSTOCK',
+      category: 'Accessories'
+    },
+    {
+      id: '1007',
+      code: 'mbvjkgip5',
+      name: 'Galaxy Earrings',
+      description: 'Product Description',
+      price: 34,
+      quantity: 23,
+      inventoryStatus: 'INSTOCK',
+      category: 'Accessories'
+    },
+    {
+      id: '1008',
+      code: 'vbb124btr',
+      name: 'Game Controller',
+      description: 'Product Description',
+      price: 99,
+      quantity: 2,
+      inventoryStatus: 'LOWSTOCK',
+      category: 'Electronics'
+    },
+    {
+      id: '1009',
+      code: 'cm230f032',
+      name: 'Gaming Set',
+      description: 'Product Description',
+      price: 299,
+      quantity: 63,
+      inventoryStatus: 'INSTOCK',
+      category: 'Electronics'
+    }
+  ];
+  selectedProduct: any | null = null;
+
+onSelectionChange(event: any) {
+  // Handle the selection change
+  console.log('Selected product:', this.selectedProduct);
+  // Additional logic here
+}
 }

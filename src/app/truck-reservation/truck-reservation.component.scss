@@ -170,39 +170,39 @@
   }
 
   /* Tab highlights */
-  .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link,
-  .p-tabmenu-nav-container .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
-    background-color: #eab308 !important;
-    color: #422006 !important;
-    border-color: #eab308 !important;
-    border-width: 0 0 3px 0 !important;
-  }
+  // .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link,
+  // .p-tabmenu-nav-container .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+  //   background-color: #eab308 !important;
+  //   color: #422006 !important;
+  //   border-color: #eab308 !important;
+  //   border-width: 0 0 3px 0 !important;
+  // }
 
-  .p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-disabled):hover .p-menuitem-link {
-    background-color: #fef08a !important;
-    color: #422006 !important;
-  }
+  // .p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-disabled):hover .p-menuitem-link {
+  //   background-color: #fef08a !important;
+  //   color: #422006 !important;
+  // }
 }
 
 
 /* Higher specificity selector */
-body .p-button.p-button-text.p-ghost {
-  color: red !important;
-}
+// body .p-button.p-button-text.p-ghost {
+//   color: red !important;
+// }
 
 // .custom-blue-text .p-button-label {
 //   color: #002084 !important;
 // }
 
 // In your component.scss file
-:host ::ng-deep {
-  .custom-blue-text {
-    &.p-button.p-button-text .p-button-label,
-    .p-button-label {
-      color: #002084 !important;
-    }
-  }
-}
+// :host ::ng-deep {
+//   .custom-blue-text {
+//     &.p-button.p-button-text .p-button-label,
+//     .p-button-label {
+//       color: #002084 !important;
+//     }
+//   }
+// }
 // :host ::ng-deep  .p-tabs .p-tablist .p-tablist-content .p-tablist-tab-list .p-tab-active{
  
 //    border-bottom: 5px solid #FECB00 !important;
@@ -221,12 +221,12 @@ body .p-button.p-button-text.p-ghost {
 
 
 
-:host ::ng-deep .p-tabview .p-tabview-nav li button {
-  font-family: 'Avenir LT Std', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-}
+// :host ::ng-deep .p-tabview .p-tabview-nav li button {
+//   font-family: 'Avenir LT Std', sans-serif;
+//   font-size: 16px;
+//   font-weight: 500;
+// }
 
-:host ::ng-deep .p-datepicker-day-view {
-   font-size: 14px !important; 
-}
+// :host ::ng-deep .p-datepicker-day-view {
+//    font-size: 14px !important; 
+// }

@@ -1,18 +1,39 @@
-/* First import your typography */
+/* Import typography and utilities */
 @use './styles/typography.scss';
 @use './styles/typography-utilities.scss';
-// @use './styles/truck-rental-theme.scss';
 
-/* Then Tailwind imports */
-@tailwind base {
-  /* This keeps your typography from being reset */
-  h1, h2, h3, h4, h5, h6 {
-    @apply preserve;
-  }
+/* Tailwind base styles */
+@tailwind base;
+
+/* Ensure Tailwind respects typography.scss heading styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-primary);
+  font-weight: inherit;
+  line-height: inherit;
+  color: var(--typography1);
 }
+.p-datepicker .p-datepicker-day-view,
+.p-datepicker .p-datepicker-date {
+  font-size: 14px;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  border-top: 2px solid #e5e7eb;
+}
+
+/* Tailwind components and utilities */
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* Apply global padding and base typography to body */
+body {
   padding: 1rem;
+  font-family: var(--font-family-primary);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 200;
+  color: var(--typography1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+

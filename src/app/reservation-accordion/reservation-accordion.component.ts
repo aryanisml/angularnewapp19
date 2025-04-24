@@ -52,7 +52,7 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
   private originalReservations = [
     {
       name: 'MK',
-      time: '07:00 AM',
+      time: '11:00 AM',
       vehicleType: 'Cube Van Shelf',
       tripType: 'Round Trip',
       customerType: 'Consumer',
@@ -67,7 +67,7 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
     },
     {
       name: 'John Stone',
-      time: '10:40 AM',
+      time: '11:10 AM',
       unitNumber: '#544387',
       towNumber: '#987654',
       vehicleType: 'Cube Van Shelf',
@@ -82,7 +82,7 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
     },
     {
       name: 'Hubert Blaine Wolfe',
-      time: '10:00 AM',
+      time: '11:15 AM',
       unitNumber: '#544387',
       towNumber: '#987654',
       vehicleType: 'Cube Van Shelf',
@@ -97,7 +97,7 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
     },
     {
       name: 'Alexander Dough',
-      time: '10:15 AM',
+      time: '11:36 AM',
       towNumber: '#987654',
       vehicleType: 'Cube Van Shelf',
       tripType: 'Round Trip',
@@ -112,7 +112,7 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
     },
     {
       name: 'Edward Smith',
-      time: '02:45 PM',
+      time: '11:45 AM',
       towNumber: '#987654',
       vehicleType: 'Cube Van Shelf',
       tripType: 'Round Trip',
@@ -127,7 +127,7 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
     },
     {
       name: 'Edward Smith',
-      time: '02:00 PM',
+      time: '11:55 PM',
       vehicleType: 'Cube Van Shelf',
       tripType: 'Round Trip',
       customerType: 'Consumer',
@@ -213,53 +213,49 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
   }
 
   // Calculate where to show the time indicator
-  private calculateTimeIndicatorPosition(): void {
-    const now = this.currentTime;
-    const currentHour = now.getHours();
-    const currentMinute = now.getMinutes();
-    
-    // Reset visibility
-    this.timeIndicatorVisible = false;
-    this.currentTimeSlot = null;
-    
-    // Get all time slots in chronological order
-    const allTimeSlots = this.getAllTimeSlots();
-    
-    // Find which time slot the current time falls in or between
-    for (let i = 0; i < allTimeSlots.length; i++) {
-      const slotTime = this.parseTimeString(allTimeSlots[i].time);
-      if (!slotTime) continue;
-      
-      // Check if we're in this hour
-      if (currentHour === slotTime.hours) {
-        this.timeIndicatorVisible = true;
-        this.currentTimeSlot = allTimeSlots[i].time;
-        this.currentTimePercentage = (currentMinute / 60) * 100;
-        break;
-      }
-      
-      // If we're between this slot and the next one
-      if (i < allTimeSlots.length - 1) {
-        const nextSlotTime = this.parseTimeString(allTimeSlots[i + 1].time);
-        if (!nextSlotTime) continue;
-        
-        const currentTimeInMinutes = currentHour * 60 + currentMinute;
-        const slotTimeInMinutes = slotTime.hours * 60;
-        const nextSlotTimeInMinutes = nextSlotTime.hours * 60;
-        
-        if (currentTimeInMinutes >= slotTimeInMinutes && currentTimeInMinutes < nextSlotTimeInMinutes) {
-          this.timeIndicatorVisible = true;
-          this.currentTimeSlot = allTimeSlots[i].time;
-          
-          // Calculate percentage between this slot and the next
-          const totalMinutes = nextSlotTimeInMinutes - slotTimeInMinutes;
-          const elapsedMinutes = currentTimeInMinutes - slotTimeInMinutes;
-          this.currentTimePercentage = (elapsedMinutes / totalMinutes) * 100;
-          break;
-        }
-      }
-    }
+ // Modified calculateTimeIndicatorPosition method
+
+private calculateTimeIndicatorPosition(): void {
+  const now = this.currentTime;
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+  
+  // Reset visibility - always default to not visible
+  this.timeIndicatorVisible = false;
+  this.currentTimeSlot = null;
+  
+  // Get visible time slots that have reservations
+  const slotsWithReservations = this.getAllTimeSlots().filter(slot => 
+    slot.reservations && slot.reservations.length > 0
+  );
+  
+  if (slotsWithReservations.length === 0) {
+    return; // No slots with reservations, exit early
   }
+  
+  // First check: Does a time slot exist for the current hour?
+  const currentHourSlot = slotsWithReservations.find(slot => {
+    const slotTime = this.parseTimeString(slot.time);
+    return slotTime && slotTime.hours === currentHour;
+  });
+  
+  // If we have a slot for the current hour, set indicator for that slot only
+  if (currentHourSlot) {
+    this.timeIndicatorVisible = true;
+    this.currentTimeSlot = currentHourSlot.time;
+    this.currentTimePercentage = (currentMinute / 60) * 100;
+    return; // Exit early - we found our slot
+  }
+  
+  // If we reach here, there's no slot for the current hour
+  // We should NOT show indicator between slots when the current hour doesn't have its own slot
+  
+  // To be certain, explicitly set these to default values
+  this.timeIndicatorVisible = false;
+  this.currentTimeSlot = null;
+  this.currentTimePercentage = 0;
+}
+  
 
   // Generate locations with reservations grouped by hour
   private generateLocations(): Location[] {
@@ -344,7 +340,8 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
   getAllTimeSlots(): TimeSlot[] {
     return this.locations
       .filter(loc => loc.isOpen)
-      .flatMap(loc => loc.timeSlots);
+      .flatMap(loc => loc.timeSlots)
+      .filter(slot => slot.reservations.length > 0);
   }
 
   // Format an hour to a time slot string (e.g., 9 -> "09:00 AM")
@@ -380,7 +377,8 @@ export class ReservationAccordionComponent implements OnInit, OnDestroy {
 
   // Check if we should show time indicator for a specific time slot
   shouldShowTimeIndicatorForSlot(slot: TimeSlot): boolean {
-    return this.timeIndicatorVisible && slot.time === this.currentTimeSlot;
+    return this.timeIndicatorVisible && slot.time === this.currentTimeSlot &&  
+    slot.reservations.length > 0;
   }
   
   // Helper to parse time strings like "09:00 AM" into hours and minutes

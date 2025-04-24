@@ -36,11 +36,13 @@
         <div class="border-b border-gray-200 time-slot-row relative">
           <!-- Time indicator line - shown directly in the matching slot -->
           @if (shouldShowTimeIndicatorForSlot(slot)) {
-            <div class="absolute   left-[130px] right-0 h-0.5  z-10  bg-[#002084] " [style.top.%]="currentTimePercentage">
-              <div
-                  class="absolute w-0 h-0 border-l-[24px] border-l-[#002084] border-t-[11px] border-t-transparent border-b-[11px] border-b-transparent  top-[-10px]">
-            </div>
-          </div>
+            <!-- Only show the indicator if the slot has reservations AND matches current time -->
+            @if (slot.reservations.length > 0) {
+              <div class="absolute left-[130px] right-0 h-0.5 z-10 bg-[#002084]" [style.top.%]="currentTimePercentage">
+                <div class="absolute w-0 h-0 border-l-[24px] border-l-[#002084] border-t-[11px] border-t-transparent border-b-[11px] border-b-transparent top-[-10px]">
+                </div>
+              </div>
+            }
           }
           <!-- Time slot row -->
           <div class="grid grid-cols-[130px_486px] ">

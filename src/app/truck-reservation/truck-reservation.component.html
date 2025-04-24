@@ -114,6 +114,51 @@ placeholder="Search for items..."
   <p-datepicker [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" [showIcon]="true" />
 
 </div>
+<div>
+  <!-- frozen-table.component.html -->
+<div class="card">
+  <h5>Frozen Columns</h5>
+  <p>
+    Frozen columns are used to fix certain columns in horizontal scrolling.
+  </p>
+
+  <p-table [value]="products" 
+  [scrollable]="true" 
+  scrollHeight="400px" 
+  [tableStyle]="{'min-width': '60rem'}" 
+
+  selectionMode="single"
+  [(selection)]="selectedProduct" 
+  (selectionChange)="onSelectionChange($event)" >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="min-width:200px; border-right: 3px solid #e5e7eb; box-shadow: 5px 0 5px -5px rgba(0,0,0,0.1);" pFrozenColumn>Code</th>
+      
+        <th style="min-width:200px">Category</th>
+        <th style="min-width:200px">Quantity</th>
+        <th style="min-width:200px">Price</th>
+        <th style="min-width:200px">Status</th>
+        <th style="min-width:350px">Description</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr [pSelectableRow]="product">
+        <td style="border-right: 3px solid #e5e7eb; box-shadow: 5px 0 5px -5px rgba(0,0,0,0.1);" pFrozenColumn>{{product.code}}</td>
+      
+        <td>{{product.category}}</td>
+        <td>{{product.quantity}}</td>
+        <td>{{product.price | currency:'USD'}}</td>
+        <td>
+          <span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">
+            {{product.inventoryStatus}}
+          </span>
+        </td>
+        <td>{{product.description}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+</div>
   
   <div class="flex flex-col gap-4 w-full mt-2">
 
